@@ -603,16 +603,21 @@ def parse(tokens, grammar):
             if y[2] != [] and y[2][0] in res:
                 aux[y[2][0]] = 1
         global TokensPos
-        print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
-        print("Error sintanctico: se encontro " + '"' + str(tokens[i]) + '"; ', end = "")
-        print("Se esperaba: ", end = "")
+        print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
+        print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+        #print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
+        #print("Error sintanctico: se encontro " + '"' + str(tokens[i]) + '"; ', end = "")
+        #print("Se esperaba: ", end = "")
         s = ""
         for h in aux:
             s = s + '"'+ str(h) + '", '
         if s != "":
             s = s[0:len(s)-2]
             s = s + "."
-        print(s)
+        print3= "Se esperaba: %s" %(s)
+        print print1+print2+print3
+        #print(s)
+
         return False
 
 
