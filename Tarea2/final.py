@@ -430,6 +430,7 @@ grammar = [
     ("ps", ["funcion_principal", "statements", "fin_principal"]),
     ("element", ["funcion", "type", "id", "tk_par_izq", "optparams",
                  "tk_par_der", "hacer", "statements", "fin_funcion"]),
+    ("element", ["strct"]),
     ("element", []),
     ("type", ["entero"]),
     ("type", ["caracter"]),
@@ -443,9 +444,9 @@ grammar = [
     ("params", ["type", "id"]),
     ("statements", ["stmt", "statements"]),
     ("statements", []),
-    ("stmt", ["type", "id", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt", ["id", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt", ["type", "id", "tk_pyc"]),
+    ("stmt", ["type", "exp", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt", ["exp", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt", ["type", "exp", "tk_pyc"]),
     ("stmt", ["exp", "tk_pyc"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der",
               "entonces", "statements", "fin_si"]),
@@ -462,7 +463,8 @@ grammar = [
               "tk_par_der", "tk_pyc"]),
     ("stmt", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
               "fin_seleccionar"]),
-    ("stmt", ["estructura", "id", "statements", "fin_estructura"]),
+    ("stmt", ["strct"]),
+    ("strct", ["estructura", "id", "statements", "fin_estructura"]),
 
     ("cases", ["caso", "exp", "tk_dosp", "statements", "cases2"]),
     ("cases", ["deft"]),
@@ -574,13 +576,13 @@ def parse(tokens, grammar):
         if not any_shift:
             break
             
-    """for i in range(len(tokens)):
-        print("== chart" + str(i) + ",  ", end = "")
-        if i >0:
-            print(tokens[i])
+    """for a in range(len(tokens)):
+        print("== chart" + str(a) + ",  ", end = "")
+        if a > 0:
+            print(tokens[a])
         else:
             print()
-        for state in chart[i]:
+        for state in chart[a]:
             x = state[0]
             ab = state[1]
             cd = state[2]
