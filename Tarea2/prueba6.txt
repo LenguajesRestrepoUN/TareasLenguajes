@@ -1,0 +1,7 @@
+funcion_principal
+
+   mientras ( a > 0 && s != 4) hacer
+        a = a ==1;
+    fin_mientras
+
+fin_principal

@@ -606,7 +606,7 @@ def parse(tokens, grammar):
                 aux[y[2][0]] = 1
         global TokensPos
         print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
-        print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+        print2 = "Error sintactico: se encontro: \"%s\""  % (str(tokens[i]))
         #print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
         #print("Error sintanctico: se encontro " + '"' + str(tokens[i]) + '"; ', end = "")
         #print("Se esperaba: ", end = "")
@@ -616,8 +616,11 @@ def parse(tokens, grammar):
         if s != "":
             s = s[0:len(s)-2]
             s = s + "."
-        print3= "Se esperaba: %s" %(s)
-        print print1+print2+print3
+        print3= "; se esperaba: %s" %(s)
+        if str(tokens[i])=="EOF" and "funcion_principal" in aux:
+            print "Error sintactico: falta funcion_principal"
+        else:
+            print print1+print2+print3
         #print(s)
 
         return False

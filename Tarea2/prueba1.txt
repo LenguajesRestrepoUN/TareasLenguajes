@@ -1,15 +1,8 @@
-estructura C
-entero a;
-fin_estructura
-estructura Point
-entero x;
-entero y;
-real a,b,c;
-C c;
-fin_estructura
 funcion_principal
-Point p;
-p.x = 5;
-p.y = 10;
-p.c.a = 5;
+booleano flag = verdadero;
+caracter letter = 'x';
+entero count = 7;
+real mean = 3.5;
+cadena name = "Lenguajes de programacion";
+entero x,y=1,z=0;
 fin_principal
