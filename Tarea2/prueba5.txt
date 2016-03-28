@@ -1,5 +1,0 @@
-funcion_principal
-
- a=4;       // esto esta mal pero se permite
-
-fin_principal
