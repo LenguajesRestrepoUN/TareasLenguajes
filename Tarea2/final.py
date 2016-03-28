@@ -84,6 +84,66 @@ res = ['fin_principal', 'funcion_principal', 'booleano','leer','entero',
     'fin_seleccionar', 'estructura', 'fin_estructura',
     'imprimir', 'retornar','verdadero', 'falso']
 
+dic = {"tk_mas" :"+" , 
+"tk_menos" :"-" , 
+"tk_mult" :"*" , 
+"tk_div" :"/" , 
+"tk_mod" :"%" , 
+"tk_asig" :"=" , 
+"tk_menor" :"<" , 
+"tk_mayor" :">" , 
+"tk_menor_igual" :"<=" , 
+"tk_mayor_igual" :">=" , 
+"tk_igual" :"==" , 
+"tk_y" :"&&" , 
+"tk_o" :"||" , 
+"tk_dif" :"!=" , 
+"tk_neg" :"!" , 
+"tk_dosp" :":" , 
+"tk_comilla_sen" :"'" , 
+"tk_comilla_dob" :"\"" , 
+"tk_pyc" :";" , 
+"tk_coma" :"," , 
+"tk_punto" :"." , 
+"tk_par_izq" :"(" , 
+"tk_par_der" :")" , 
+"id" : "identificador" , 
+"tk_entero" :"valor_entero" , 
+"tk_real" :"valor_real" , 
+"tk_caracter" :"valor_caracter" , 
+"tk_cadena" :"valor_cadena" , 
+"funcion_principal" : "funcion_principal" , 
+"fin_principal" :"fin_principal" , 
+"leer" :"leer", 
+"imprimir" :"imprimir" , 
+"booleano" :"booleano" , 
+"caracter" :"caracter" , 
+"entero" :"entero" , 
+"real" :"real" , 
+"cadena" :"cadena" ,
+"si" :"si" , 
+"entonces" :"entonces" , 
+"fin_si" :"fin_si" , 
+"si_no" :"si_no" , 
+"mientras" :"mientras" , 
+"hacer" :"hacer" , 
+"fin_mientras" :"fin_mientras" , 
+"para" :"para" , 
+"fin_para" :"fin_para" , 
+"seleccionar" :"seleccionar" , 
+"entre" :"entre" , 
+"caso" :"caso" , 
+"romper" :"romper" , 
+"defecto" :"defecto" , 
+"fin_seleccionar" :"fin_seleccionar" , 
+"estructura" :"estructura" , 
+"fin_estructura" :"fin_estructura" , 
+"funcion" :"funcion" , 
+"fin_funcion" :"fin_funcion" , 
+"retornar" :"retornar" , 
+"falso" :"falso" , 
+"verdadero" :"verdadero"}
+
 l2 = ['tk_mas', 'tk_menos','tk_mult','tk_div','tk_mod','tk_asig', 'tk_menor',
     'tk_mayor', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_y', 'tk_o',
     'tk_dif', 'tk_neg', 'tk_dosp', 'tk_comilla_sen', 'tk_comilla_dob', 'tk_pyc',
@@ -98,6 +158,8 @@ aux = 1
 Tokens = []
 global TokensPos
 TokensPos = []
+global TokensValues
+TokensValues = []
 
 def t_newline(t):
     r'\n '
@@ -110,11 +172,11 @@ def t_newline(t):
     aux = 1
 
 def t_singlecomment(token):
-    r'//[a-zA-Z0-9_ \t\v\r]* '
+    r'//'
     global aux
     aux = token.lexpos - lpos + 1 + len(str(token.value))
     token.lexer.begin('singlecomment')
-    token.lexer.begin('INITIAL')
+    #token.lexer.begin('INITIAL')
 
 
 def t_singlecomment_newline(token):
@@ -173,13 +235,15 @@ def t_id(token):
     if token.value not in res:
         return token
     else:
-        #global lpos
+        #global lpo
         #print('<' + str(token.value) + ',' + str(token.lexer.lineno) + ',' + str(token.lexpos - lpos + 1) + '>')
         Tokens.append(str(token.value))
         global TokensPos
         global aux
+        global TokensValues
         aux = token.lexpos - lpos + 1 + len(str(token.value))
         TokensPos.append((token.lexer.lineno, token.lexpos - lpos + 1))
+        TokensValues.append(token.value)
 
 def t_tk_cadena(token):
     r'"[a-zA-Z0-9_ \t\n\v\r]*"'
@@ -444,10 +508,13 @@ grammar = [
     ("params", ["type", "id"]),
     ("statements", ["stmt", "statements"]),
     ("statements", []),
+    ("statements2", ["stmt", "statements", "optromper"]),
+    ("statements2", []),
     ("stmt", ["type", "exp", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt", ["exp", "tk_asig", "exp", "tk_pyc"]),
+    #("stmt", ["exp", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt", ["id", "tk_asig", "exp", "tk_pyc"]),
     ("stmt", ["type", "exp", "tk_pyc"]),
-    ("stmt", ["exp", "tk_pyc"]),
+    #("stmt", ["exp", "tk_pyc"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der",
               "entonces", "statements", "fin_si"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements",
@@ -466,9 +533,9 @@ grammar = [
     ("stmt", ["strct"]),
     ("strct", ["estructura", "id", "statements", "fin_estructura"]),
 
-    ("cases", ["caso", "exp", "tk_dosp", "statements", "cases2"]),
+    ("cases", ["caso", "exp", "tk_dosp", "statements2", "cases2"]),
     ("cases", ["deft"]),
-    ("cases2", ["caso", "exp", "tk_dosp", "statements", "cases2"]),
+    ("cases2", ["caso", "exp", "tk_dosp", "statements2", "cases2"]),
     ("cases2", []),
     ("cases2", ["deft"]),
     ("deft", ["defecto", "tk_dosp", "statements"]),
@@ -478,8 +545,11 @@ grammar = [
 
     ("exp", ["id"]),
     ("exp", ["id", "tk_coma", "optexp"]),
+    ("exp", ["id", "tk_asig", "exp", "tk_coma", "optexp"]),
     ("optexp", ["id", "tk_coma", "optexp"]),
+    ("optexp", ["id", "tk_asig", "exp", "tk_coma", "optexp"]),
     ("optexp", ["id"]),
+    ("optexp", ["id", "tk_asig", "exp"]),
     ("exp", ["id", "tk_punto", "chain"]),
     ("chain", ["id", "tk_punto", "chain"]),
     ("chain", ["id"]),
@@ -489,7 +559,6 @@ grammar = [
     ("exp", ["tk_cadena"]),
     ("exp", ["verdadero"]),
     ("exp", ["falso"]),
-    ("exp", ["romper"]),
 
     ("exp", ["tk_neg", "exp"]),
     ("exp", ["tk_par_izq", "exp", "tk_par_der"]),
@@ -513,7 +582,9 @@ grammar = [
     ("optargs", []),
     ("optargs", ["args"]),
     ("args", ["exp", "tk_coma", "args"]),
-    ("args", ["exp"])
+    ("args", ["exp"]),
+    ("optromper", ["romper"]),
+    ("optromper", []),
     ]
 
 def addtochart(chart, index, state):
@@ -576,10 +647,10 @@ def parse(tokens, grammar):
         if not any_shift:
             break
             
-    """for a in range(len(tokens)):
+    for a in range(len(tokens)):
         print("== chart" + str(a) + ",  ", end = "")
         if a > 0:
-            print(tokens[a])
+            print(tokens[a-1])
         else:
             print()
         for state in chart[a]:
@@ -594,7 +665,7 @@ def parse(tokens, grammar):
             for sym in cd:
                 print(" " + sym, end = "")
             print(" from " + str(j))
-        print("")"""
+        print("")
             
     accepting_state = (start_rule[0], start_rule[1], [], 0)
     if accepting_state in chart[len(tokens)-1]:
@@ -602,23 +673,25 @@ def parse(tokens, grammar):
     else:
         aux = {}
         for y in chart[i]:
-            if y[2] != [] and y[2][0] in res:
-                aux[y[2][0]] = 1
+            if y[2] != [] and y[2][0] in dic:
+                aux[dic[y[2][0]]] = 1
         global TokensPos
-        print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
-        print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
-        #print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
-        #print("Error sintanctico: se encontro " + '"' + str(tokens[i]) + '"; ', end = "")
-        #print("Se esperaba: ", end = "")
+        global TokensValues
+        TokensValues.append("EOF")
+        #print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
+        #print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+        print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
+        print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
+        print("Se esperaba: ", end = "")
         s = ""
         for h in aux:
             s = s + '"'+ str(h) + '", '
         if s != "":
             s = s[0:len(s)-2]
             s = s + "."
-        print3= "Se esperaba: %s" %(s)
-        print print1+print2+print3
-        #print(s)
+        #print3= "Se esperaba: %s" %(s)
+        #print print1+print2+print3
+        print(s)
 
         return False
 
@@ -637,7 +710,7 @@ while True:
     Tokens.append( str(tok.type) )
     aux = tok.lexpos - lpos + 1 + len(str(tok.value))
     TokensPos.append((tok.lineno, tok.lexpos - lpos + 1))
-     
+    TokensValues.append(tok.value)
     """if tok.type == tok.value or tok.type in l2:
         print('<' + str(tok.type) + ',' + str(tok.lineno) + ',' + str(tok.lexpos - lpos + 1) + '>')
     else:
