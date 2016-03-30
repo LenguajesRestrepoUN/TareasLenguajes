@@ -7,6 +7,11 @@ funcion_principal
 			imprimir ( "no es primo" ) ;
 			flag = verdadero ;
 		fin_si
+		romper;
+		si ( n % i == 0 ) entonces
+			imprimir ( "no es primo" ) ;
+			romper;
+		fin_si
 	fin_para
 	si ( flag == falso ) entonces
 		imprimir ( "es primo" ) ;
