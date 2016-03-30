@@ -1,4 +1,4 @@
 estructura Point
-entero x
+entero x //se esperaba token carcter.. identificardor
 
 fin_estructura
