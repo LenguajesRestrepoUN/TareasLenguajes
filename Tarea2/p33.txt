@@ -1,0 +1,5 @@
+funcion_principal
+
+imprimir ( -""  );
+
+fin_principal

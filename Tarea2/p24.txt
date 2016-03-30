@@ -1,0 +1,7 @@
+funcion_principal
+// imprimir (sum(3,5))
+/*
+comentario de
+varias lineas
+*/
+fin_principal

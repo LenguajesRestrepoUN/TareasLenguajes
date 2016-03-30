@@ -1,0 +1,8 @@
+funcion_principal
+entero a = 3;
+leer (a);
+seleccionar ( a ) entre
+caso 0    //se esperababn dos puntos
+
+fin_seleccionar
+fin_principal

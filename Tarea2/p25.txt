@@ -1,0 +1,17 @@
+
+funcion_principal
+sum(15, 52);
+fin_principal
+
+funcion entero sum(entero a, entero b) hacer
+retornar a + b;
+// fin
+
+
+fin_funcion
+
+funcion entero sum(entero a, entero b, boleano w) hacer
+retornar a + b;
+fin_funcion
+
+

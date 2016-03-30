@@ -1,0 +1,5 @@
+funcion_principal
+
+caracter letter = 'x;
+
+fin_principal
