@@ -511,10 +511,9 @@ grammar = [
     ("statements2", ["stmt", "statements", "optromper"]),
     ("statements2", []),
     ("stmt", ["type", "exp", "tk_asig", "exp", "tk_pyc"]),
-    #("stmt", ["exp", "tk_asig", "exp", "tk_pyc"]),
     ("stmt", ["id", "tk_asig", "exp", "tk_pyc"]),
     ("stmt", ["type", "exp", "tk_pyc"]),
-    #("stmt", ["exp", "tk_pyc"]),
+    ("stmt", ["id", "tk_punto", "chain", "tk_asig", "exp", "tk_pyc"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der",
               "entonces", "statements", "fin_si"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements",
@@ -525,8 +524,8 @@ grammar = [
     ("stmt", ["para", "tk_par_izq", "stmt", "exp", "tk_pyc", "exp",
               "tk_par_der", "hacer", "statements", "fin_para"]),
     ("stmt", ["mientras", "tk_par_izq", "exp", "tk_par_der", "hacer",
-              "statements", "fin_mientras"]),
-    ("stmt", ["hacer", "statements", "mientras", "tk_par_izq", "exp",
+              "statements2", "fin_mientras"]),
+    ("stmt", ["hacer", "statements2", "mientras", "tk_par_izq", "exp",
               "tk_par_der", "tk_pyc"]),
     ("stmt", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
               "fin_seleccionar"]),
@@ -559,6 +558,7 @@ grammar = [
     ("exp", ["tk_cadena"]),
     ("exp", ["verdadero"]),
     ("exp", ["falso"]),
+    ("exp", ["tk_menos", "exp"]),
 
     ("exp", ["tk_neg", "exp"]),
     ("exp", ["tk_par_izq", "exp", "tk_par_der"]),
@@ -572,7 +572,8 @@ grammar = [
     ("exp", ["exp", "tk_mayor", "exp"]),         # | higher precedence, 
     ("exp", ["exp", "tk_menor_igual", "exp"]),        # | left associative
     ("exp", ["exp", "tk_mayor_igual", "exp"]),        # \---
-        
+    ("exp", ["exp", "tk_dif", "exp"]),
+    
     ("exp", ["exp", "tk_mas", "exp"]),         # /--- higher precedence,
     ("exp", ["exp", "tk_menos", "exp"]),         # \--- left associative
     ("exp", ["exp", "tk_mult", "exp"]),         # /--- higher precedence,
@@ -583,7 +584,7 @@ grammar = [
     ("optargs", ["args"]),
     ("args", ["exp", "tk_coma", "args"]),
     ("args", ["exp"]),
-    ("optromper", ["romper"]),
+    ("optromper", ["romper", "tk_pyc"]),
     ("optromper", []),
     ]
 
@@ -647,7 +648,7 @@ def parse(tokens, grammar):
         if not any_shift:
             break
             
-    for a in range(len(tokens)):
+    """for a in range(len(tokens)):
         print("== chart" + str(a) + ",  ", end = "")
         if a > 0:
             print(tokens[a-1])
@@ -665,7 +666,7 @@ def parse(tokens, grammar):
             for sym in cd:
                 print(" " + sym, end = "")
             print(" from " + str(j))
-        print("")
+        print("")"""
             
     accepting_state = (start_rule[0], start_rule[1], [], 0)
     if accepting_state in chart[len(tokens)-1]:
@@ -675,23 +676,26 @@ def parse(tokens, grammar):
         for y in chart[i]:
             if y[2] != [] and y[2][0] in dic:
                 aux[dic[y[2][0]]] = 1
-        global TokensPos
-        global TokensValues
-        TokensValues.append("EOF")
-        #print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
-        #print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
-        print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
-        print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
-        print("Se esperaba: ", end = "")
-        s = ""
-        for h in aux:
-            s = s + '"'+ str(h) + '", '
-        if s != "":
-            s = s[0:len(s)-2]
-            s = s + "."
-        #print3= "Se esperaba: %s" %(s)
-        #print print1+print2+print3
-        print(s)
+        if "funcion_principal" in aux:
+            print("Error sintactico: falta funcion_principal")
+        else:
+            global TokensPos
+            global TokensValues
+            TokensValues.append("EOF")
+            #print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
+            #print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+            print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
+            print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
+            print("se esperaba: ", end = "")
+            s = ""
+            for h in aux:
+                s = s + '"'+ str(h) + '", '
+            if s != "":
+                s = s[0:len(s)-2]
+                s = s + "."
+            #print3= "Se esperaba: %s" %(s)
+            #print print1+print2+print3
+            print(s)
 
         return False
 
