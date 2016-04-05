@@ -6,5 +6,8 @@ funcion_principal
 		imprimir (a*2);
 	romper;
 	defecto:
+		lol = 1;
+		romper;
 	fin_seleccionar
+	romper;
 fin_principal
