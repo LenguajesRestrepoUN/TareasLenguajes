@@ -1,8 +1,13 @@
 funcion_principal
-booleano flag = verdadero;
-caracter letter = 'x';
-entero count = 7;
-real mean = 3.5;
-cadena name = "Lenguajes de programacion";
-entero x,y=1,z=0;
+	seleccionar ( a ) entre
+	caso 0 :
+		imprimir (a);
+	caso 1:
+		imprimir (a*2);
+	romper;
+	defecto:
+		lol = 1;
+		romper;
+	fin_seleccionar
+	romper;
 fin_principal

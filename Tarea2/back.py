@@ -1,4 +1,4 @@
-﻿#autores= Carlos Orlando Solorzano y Juan Camilo Calero
+#autores= Carlos Orlando Solorzano y Juan Camilo Calero
 
 import ply.lex as lex
 import re 
@@ -496,8 +496,6 @@ grammar = [
                  "tk_par_der", "hacer", "statements", "fin_funcion"]),
     ("element", ["strct"]),
     ("element", []),
-    ("strct", ["estructura", "id", "statements", "fin_estructura"]),
-    
     ("type", ["entero"]),
     ("type", ["caracter"]),
     ("type", ["cadena"]),
@@ -508,25 +506,16 @@ grammar = [
     ("optparams", []),
     ("params", ["type", "id", "tk_coma", "params"]),
     ("params", ["type", "id"]),
-
-    ("optpargs", ["args"]),
-    ("optpargs", []),
-    ("args", ["exp", "tk_coma", "params"]),
-    ("args", ["exp"]),
-    
     ("statements", ["stmt", "statements"]),
     ("statements", []),
+    #("statements2", ["stmt", "statements", "optromper"]),
+    #("statements2", []),
     ("statements3", ["stmt2", "statements3"]),
     ("statements3", []),
-    
-    ("stmt", ["id", "tk_par_izq", "optpargs", "tk_par_der", "tk_pyc"]),
-    ("stmt", ["type", "id", "tk_asig", "exp", "tk_coma", "optexp", "tk_pyc"]),
-    ("stmt", ["type", "id", "tk_coma", "optexp", "tk_pyc"]),
+    ("stmt", ["type", "exp", "tk_asig", "exp", "tk_pyc"]),
     ("stmt", ["id", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt", ["type", "id", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt", ["type", "exp", "tk_pyc"]),
     ("stmt", ["id", "tk_punto", "chain", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt", ["type", "id", "tk_pyc"]),
-    
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der",
               "entonces", "statements", "fin_si"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements",
@@ -543,18 +532,42 @@ grammar = [
     ("stmt", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
               "fin_seleccionar"]),
 
+    ("stmt2", ["romper", "tk_pyc"]),
+    ("stmt2", ["type", "exp", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt2", ["id", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt2", ["type", "exp", "tk_pyc"]),
+    ("stmt2", ["id", "tk_punto", "chain", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt2", ["si", "tk_par_izq", "exp", "tk_par_der",
+              "entonces", "statements3", "fin_si"]),
+    ("stmt2", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements3",
+              "si_no", "statements3", "fin_si"]),
+    ("stmt2", ["retornar", "exp", "tk_pyc"]),
+    ("stmt2", ["leer", "tk_par_izq", "id", "tk_par_der", "tk_pyc"]),
+    ("stmt2", ["imprimir", "tk_par_izq", "imp_params", "tk_par_der", "tk_pyc"]),
+    ("stmt2", ["para", "tk_par_izq", "stmt", "exp", "tk_pyc", "exp",
+              "tk_par_der", "hacer", "statements3", "fin_para"]),
+    ("stmt2", ["mientras", "tk_par_izq", "exp", "tk_par_der", "hacer",
+              "statements3", "fin_mientras"]),
+    ("stmt2", ["hacer", "statements3", "mientras", "tk_par_izq", "exp",
+              "tk_par_der", "tk_pyc"]),
+    ("stmt2", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
+              "fin_seleccionar"]),
+    
+    ("strct", ["estructura", "id", "statements", "fin_estructura"]),
+
     ("cases", ["caso", "exp", "tk_dosp", "statements3", "cases2"]),
     ("cases", ["deft"]),
     ("cases2", ["caso", "exp", "tk_dosp", "statements3", "cases2"]),
     ("cases2", []),
     ("cases2", ["deft"]),
-    ("deft", ["defecto", "tk_dosp", "statements3"]),
+    ("deft", ["defecto", "tk_dosp", "statements"]),
 
     ("imp_params", ["exp", "tk_coma", "imp_params"]),
     ("imp_params", ["exp"]),
 
     ("exp", ["id"]),
-    #("exp", ["id", "tk_asig", "exp", "tk_coma", "optexp"]),
+    ("exp", ["id", "tk_coma", "optexp"]),
+    ("exp", ["id", "tk_asig", "exp", "tk_coma", "optexp"]),
     ("optexp", ["id", "tk_coma", "optexp"]),
     ("optexp", ["id", "tk_asig", "exp", "tk_coma", "optexp"]),
     ("optexp", ["id"]),
@@ -568,18 +581,9 @@ grammar = [
     ("exp", ["tk_cadena"]),
     ("exp", ["verdadero"]),
     ("exp", ["falso"]),
-    ("exp", ["tk_menos", "tk_real"]),
-    ("exp", ["tk_menos", "tk_entero"]),
-    ("exp", ["tk_menos", "id"]),
-    ("exp", ["tk_menos", "id", "tk_punto", "chain"]),
-    ("exp", ["tk_menos", "tk_par_izq", "exp", "tk_par_der"]),
-    
-    ("exp", ["tk_neg", "id"]),
-    ("exp", ["tk_neg", "id", "tk_punto", "chain"]),
-    ("exp", ["tk_neg", "verdadero"]),
-    ("exp", ["tk_neg", "falso"]),
-    ("exp", ["tk_neg", "tk_par_izq", "exp", "tk_par_der"]),
-    
+    ("exp", ["tk_menos", "exp"]),
+
+    ("exp", ["tk_neg", "exp"]),
     ("exp", ["tk_par_izq", "exp", "tk_par_der"]),
     ("exp", ["id", "tk_par_izq", "optargs", "tk_par_der"]),
     ("exp", ["tk_par_izq", "optargs", "tk_par_der"]),
@@ -603,32 +607,8 @@ grammar = [
     ("optargs", ["args"]),
     ("args", ["exp", "tk_coma", "args"]),
     ("args", ["exp"]),
-
-    ("stmt2", ["romper", "tk_pyc"]),
-    
-    ("stmt2", ["id", "tk_par_izq", "optpargs", "tk_par_der", "tk_pyc"]),
-    ("stmt2", ["type", "id", "tk_asig", "exp", "tk_coma", "optexp", "tk_pyc"]),
-    ("stmt2", ["type", "id", "tk_coma", "optexp", "tk_pyc"]),
-    ("stmt2", ["id", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt2", ["type", "id", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt2", ["id", "tk_punto", "chain", "tk_asig", "exp", "tk_pyc"]),
-    ("stmt2", ["type", "id", "tk_pyc"]),
-    
-    ("stmt2", ["si", "tk_par_izq", "exp", "tk_par_der",
-              "entonces", "statements3", "fin_si"]),
-    ("stmt2", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements3",
-              "si_no", "statements3", "fin_si"]),
-    ("stmt2", ["retornar", "exp", "tk_pyc"]),
-    ("stmt2", ["leer", "tk_par_izq", "id", "tk_par_der", "tk_pyc"]),
-    ("stmt2", ["imprimir", "tk_par_izq", "imp_params", "tk_par_der", "tk_pyc"]),
-    ("stmt2", ["para", "tk_par_izq", "stmt", "exp", "tk_pyc", "exp",
-              "tk_par_der", "hacer", "statements3", "fin_para"]),
-    ("stmt2", ["mientras", "tk_par_izq", "exp", "tk_par_der", "hacer",
-              "statements3", "fin_mientras"]),
-    ("stmt2", ["hacer", "statements3", "mientras", "tk_par_izq", "exp",
-              "tk_par_der", "tk_pyc"]),
-    ("stmt2", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
-              "fin_seleccionar"])
+    #("optromper", ["romper", "tk_pyc"]),
+    #("optromper", []),
     ]
 
 def addtochart(chart, index, state):
@@ -725,20 +705,20 @@ def parse(tokens, grammar):
             global TokensPos
             global TokensValues
             TokensValues.append("EOF")
-            print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
-            print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
-            #print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
-            #print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
-            #print("se esperaba: ", end = "")
+            #print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
+            #print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+            print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
+            print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
+            print("se esperaba: ", end = "")
             s = ""
             for h in aux:
                 s = s + '"'+ str(h) + '", '
             if s != "":
                 s = s[0:len(s)-2]
                 s = s + "."
-            print3= "Se esperaba: %s" %(s)
-            print print1+print2+print3
-            #print(s)
+            #print3= "Se esperaba: %s" %(s)
+            #print print1+print2+print3
+            print(s)
 
         return False
 

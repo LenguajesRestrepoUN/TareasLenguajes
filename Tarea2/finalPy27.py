@@ -1,4 +1,5 @@
 ﻿#autores= Carlos Orlando Solorzano y Juan Camilo Calero
+#Echo con las enseñanzas de Udacity
 
 import ply.lex as lex
 import re 
@@ -143,6 +144,68 @@ dic = {"tk_mas" :"+" ,
 "retornar" :"retornar" , 
 "falso" :"falso" , 
 "verdadero" :"verdadero"}
+
+dic1 = {
+"+":1,
+"-":2,
+"*":3,
+"/":4,
+"%":5,
+"=":6,
+"<":7,
+">":8,
+"<=":9,
+">=":10,
+"==":11,
+"&&":12,
+"||":13,
+"!=":14,
+"!":15,
+":":16,
+"":17,
+"\"":18,
+";":19,
+"":20,
+".":21,
+"(":22,
+")":23,
+"identificador":24,
+"valor_entero":25,
+"valor_real":26,
+"valor_caracter":27,
+"valor_cadena":28,
+"funcion_principal":29,
+"fin_principal":30,
+"leer":31,
+"imprimir":32,
+"booleano":33,
+"caracter":34,
+"entero":35,
+"real":36,
+"cadena":37,
+"si":38,
+"entonces":39,
+"fin_si":40,
+"si_no":41,
+"mientras":42,
+"hacer":43,
+"fin_mientras":44,
+"para":45,
+"fin_para":46,
+"seleccionar":47,
+"entre":48,
+"caso":49,
+"romper":50,
+"defecto":51,
+"fin_seleccionar":52,
+"estructura":53,
+"fin_estructura":54,
+"funcion":55,
+"fin_funcion":56,
+"retornar":57,
+"falso":58,
+"verdadero":59,
+    }
 
 l2 = ['tk_mas', 'tk_menos','tk_mult','tk_div','tk_mod','tk_asig', 'tk_menor',
     'tk_mayor', 'tk_menor_igual', 'tk_mayor_igual', 'tk_igual', 'tk_y', 'tk_o',
@@ -493,10 +556,11 @@ grammar = [
     ("ps", ["element", "ps", "element"]),
     ("ps", ["funcion_principal", "statements", "fin_principal"]),
     ("element", ["funcion", "type", "id", "tk_par_izq", "optparams",
-                 "tk_par_der", "hacer", "statements", "fin_funcion"]),
+                 "tk_par_der", "hacer", "statements", "retornar", "exp", "tk_pyc",
+                 "fin_funcion"]),
     ("element", ["strct"]),
     ("element", []),
-    ("strct", ["estructura", "id", "statements", "fin_estructura"]),
+    ("strct", ["estructura", "id", "statements4", "fin_estructura"]),
     
     ("type", ["entero"]),
     ("type", ["caracter"]),
@@ -518,6 +582,8 @@ grammar = [
     ("statements", []),
     ("statements3", ["stmt2", "statements3"]),
     ("statements3", []),
+    ("statements4", ["stmt4", "statements4"]),
+    ("statements4", []),
     
     ("stmt", ["id", "tk_par_izq", "optpargs", "tk_par_der", "tk_pyc"]),
     ("stmt", ["type", "id", "tk_asig", "exp", "tk_coma", "optexp", "tk_pyc"]),
@@ -531,8 +597,8 @@ grammar = [
               "entonces", "statements", "fin_si"]),
     ("stmt", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements",
               "si_no", "statements", "fin_si"]),
-    ("stmt", ["retornar", "exp", "tk_pyc"]),
     ("stmt", ["leer", "tk_par_izq", "id", "tk_par_der", "tk_pyc"]),
+    ("stmt", ["leer", "tk_par_izq", "id", "tk_punto", "chain", "tk_par_der", "tk_pyc"]),
     ("stmt", ["imprimir", "tk_par_izq", "imp_params", "tk_par_der", "tk_pyc"]),
     ("stmt", ["para", "tk_par_izq", "stmt", "exp", "tk_pyc", "exp",
               "tk_par_der", "hacer", "statements3", "fin_para"]),
@@ -618,7 +684,8 @@ grammar = [
               "entonces", "statements3", "fin_si"]),
     ("stmt2", ["si", "tk_par_izq", "exp", "tk_par_der", "entonces", "statements3",
               "si_no", "statements3", "fin_si"]),
-    ("stmt2", ["retornar", "exp", "tk_pyc"]),
+    #("stmt2", ["retornar", "exp", "tk_pyc"]),
+    ("stmt2", ["leer", "tk_par_izq", "id", "tk_punto", "chain", "tk_par_der", "tk_pyc"]),
     ("stmt2", ["leer", "tk_par_izq", "id", "tk_par_der", "tk_pyc"]),
     ("stmt2", ["imprimir", "tk_par_izq", "imp_params", "tk_par_der", "tk_pyc"]),
     ("stmt2", ["para", "tk_par_izq", "stmt", "exp", "tk_pyc", "exp",
@@ -628,7 +695,16 @@ grammar = [
     ("stmt2", ["hacer", "statements3", "mientras", "tk_par_izq", "exp",
               "tk_par_der", "tk_pyc"]),
     ("stmt2", ["seleccionar", "tk_par_izq", "id", "tk_par_der", "entre", "cases",
-              "fin_seleccionar"])
+              "fin_seleccionar"]),
+
+    ("stmt4", ["id", "tk_par_izq", "optpargs", "tk_par_der", "tk_pyc"]),
+    ("stmt4", ["type", "id", "tk_asig", "exp", "tk_coma", "optexp", "tk_pyc"]),
+    ("stmt4", ["type", "id", "tk_coma", "optexp", "tk_pyc"]),
+    ("stmt4", ["id", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt4", ["type", "id", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt4", ["id", "tk_punto", "chain", "tk_asig", "exp", "tk_pyc"]),
+    ("stmt4", ["type", "id", "tk_pyc"])
+    
     ]
 
 def addtochart(chart, index, state):
@@ -692,7 +768,7 @@ def parse(tokens, grammar):
             break
             
     """for a in range(len(tokens)):
-        print("== chart" + str(a) + ",  ", end = "")
+        print "== chart" + str(a) + ",  ",
         if a > 0:
             print(tokens[a-1])
         else:
@@ -702,12 +778,12 @@ def parse(tokens, grammar):
             ab = state[1]
             cd = state[2]
             j = state[3]
-            print(" " + x + " ->", end = "")
+            print " " + x + " ->",
             for sym in ab:
-                print(" " + sym, end = "")
-            print (" .", end = "")
+                print " " + sym,
+            print " .",
             for sym in cd:
-                print(" " + sym, end = "")
+                print " " + sym,
             print(" from " + str(j))
         print("")"""
             
@@ -724,19 +800,23 @@ def parse(tokens, grammar):
         else:
             global TokensPos
             global TokensValues
+            l = []
+            for ii in aux:
+                l.append((dic1[ii],ii))
+            l.sort()
             TokensValues.append("EOF")
-            print1 ="<%i,%i>" % (TokensPos[i][0],(TokensPos[i][1]))
-            print2 = "Error sintanctico: se encontro \"%s\""  % (str(tokens[i]))
+            print1 ="<%i,%i> " % (TokensPos[i][0],TokensPos[i][1])
+            print2 = "Error sintactico: se encontro: \"%s\"; "  % (str(TokensValues[i]))
             #print("<"+str(TokensPos[i][0])+":"+str(TokensPos[i][1])+"> ",end="")
             #print("Error sintanctico: se encontro " + '"' + str(TokensValues[i]) + '"; ', end = "")
             #print("se esperaba: ", end = "")
             s = ""
-            for h in aux:
-                s = s + '"'+ str(h) + '", '
+            for h in l:
+                s = s + '"'+ str(h[1]) + '", '
             if s != "":
                 s = s[0:len(s)-2]
                 s = s + "."
-            print3= "Se esperaba: %s" %(s)
+            print3= "se esperaba: %s" %(s)
             print print1+print2+print3
             #print(s)
 
