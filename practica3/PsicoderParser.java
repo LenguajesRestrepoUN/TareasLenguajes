@@ -26,7 +26,7 @@ public class PsicoderParser extends Parser {
 		TK_MOD=42, TK_ASIG=43, TK_MENOR=44, TK_MAYOR=45, TK_MENOR_IGUAL=46, TK_MAYOR_IGUAL=47, 
 		TK_IGUAL=48, TK_Y=49, TK_O=50, TK_DIF=51, TK_NEG=52, TK_POSD=53, TK_COMILLA_SEN=54, 
 		TK_COMILLA_DOB=55, TK_PYC=56, TK_COMA=57, TK_PUNTO=58, TK_PAR_IZQ=59, 
-		TK_PAR_DER=60, ID=61, TK_CADENA=62, TK_REAL=63;
+		TK_PAR_DER=60, ID=61, TK_REAL=62, TK_CADENA=63;
 	public static final int
 		RULE_ps = 0, RULE_b = 1, RULE_element = 2, RULE_strct = 3, RULE_type = 4, 
 		RULE_optparams = 5, RULE_params = 6, RULE_optpargs = 7, RULE_args = 8, 
@@ -61,7 +61,7 @@ public class PsicoderParser extends Parser {
 		"TK_MULT", "TK_DIV", "TK_MOD", "TK_ASIG", "TK_MENOR", "TK_MAYOR", "TK_MENOR_IGUAL", 
 		"TK_MAYOR_IGUAL", "TK_IGUAL", "TK_Y", "TK_O", "TK_DIF", "TK_NEG", "TK_POSD", 
 		"TK_COMILLA_SEN", "TK_COMILLA_DOB", "TK_PYC", "TK_COMA", "TK_PUNTO", "TK_PAR_IZQ", 
-		"TK_PAR_DER", "ID", "TK_CADENA", "TK_REAL"
+		"TK_PAR_DER", "ID", "TK_REAL", "TK_CADENA"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -616,8 +616,8 @@ public class PsicoderParser extends Parser {
 			case TK_NEG:
 			case TK_PAR_IZQ:
 			case ID:
-			case TK_CADENA:
 			case TK_REAL:
+			case TK_CADENA:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(105);
@@ -2150,8 +2150,8 @@ public class PsicoderParser extends Parser {
 			case TK_NEG:
 			case TK_PAR_IZQ:
 			case ID:
-			case TK_CADENA:
 			case TK_REAL:
+			case TK_CADENA:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(406);
@@ -2881,8 +2881,8 @@ public class PsicoderParser extends Parser {
 		"\u0132\5&\24\2\u0130\u0132\7?\2\2\u0131\u012d\3\2\2\2\u0131\u0130\3\2"+
 		"\2\2\u0132\'\3\2\2\2\u0133\u0134\b\25\1\2\u0134\u016a\7\36\2\2\u0135\u016a"+
 		"\7?\2\2\u0136\u0137\7?\2\2\u0137\u0138\7<\2\2\u0138\u016a\5&\24\2\u0139"+
-		"\u016a\7#\2\2\u013a\u016a\7A\2\2\u013b\u016a\7@\2\2\u013c\u016a\7\37\2"+
-		"\2\u013d\u016a\7 \2\2\u013e\u013f\7)\2\2\u013f\u016a\7A\2\2\u0140\u0141"+
+		"\u016a\7#\2\2\u013a\u016a\7@\2\2\u013b\u016a\7A\2\2\u013c\u016a\7\37\2"+
+		"\2\u013d\u016a\7 \2\2\u013e\u013f\7)\2\2\u013f\u016a\7@\2\2\u0140\u0141"+
 		"\7)\2\2\u0141\u016a\7#\2\2\u0142\u0143\7)\2\2\u0143\u016a\7?\2\2\u0144"+
 		"\u0145\7)\2\2\u0145\u0146\7?\2\2\u0146\u0147\7<\2\2\u0147\u016a\5&\24"+
 		"\2\u0148\u0149\7)\2\2\u0149\u014a\7=\2\2\u014a\u014b\5(\25\2\u014b\u014c"+
