@@ -1,14 +1,13 @@
 
 grammar Psicoder;
 
-ps :  ps element    #psElement
+ps :  element ps   #psElement
     |b              #psB
     |               #psEpsilon
     ;
 
-b : element ps                                  #bElement
-   |FUNCION_PRINCIPAL statements FIN_PRINCIPAL  #bFuncionPrincipal
-   |                                            #bEpsilon
+ //element                                  #bElement
+b :FUNCION_PRINCIPAL statements FIN_PRINCIPAL  #bFuncionPrincipal
     ;
 
 element : FUNCION type ID TK_PAR_IZQ optparams

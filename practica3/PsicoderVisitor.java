@@ -17,13 +17,6 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPsElement(PsicoderParser.PsElementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code psEpsilon}
-	 * labeled alternative in {@link PsicoderParser#ps}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code psB}
 	 * labeled alternative in {@link PsicoderParser#ps}.
 	 * @param ctx the parse tree
@@ -31,12 +24,12 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPsB(PsicoderParser.PsBContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code bElement}
-	 * labeled alternative in {@link PsicoderParser#b}.
+	 * Visit a parse tree produced by the {@code psEpsilon}
+	 * labeled alternative in {@link PsicoderParser#ps}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBElement(PsicoderParser.BElementContext ctx);
+	T visitPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code bFuncionPrincipal}
 	 * labeled alternative in {@link PsicoderParser#b}.
@@ -44,13 +37,6 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBFuncionPrincipal(PsicoderParser.BFuncionPrincipalContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code bEpsilon}
-	 * labeled alternative in {@link PsicoderParser#b}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBEpsilon(PsicoderParser.BEpsilonContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code elementFuncion}
 	 * labeled alternative in {@link PsicoderParser#element}.

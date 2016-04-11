@@ -19,18 +19,6 @@ public interface PsicoderListener extends ParseTreeListener {
 	 */
 	void exitPsElement(PsicoderParser.PsElementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code psEpsilon}
-	 * labeled alternative in {@link PsicoderParser#ps}.
-	 * @param ctx the parse tree
-	 */
-	void enterPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code psEpsilon}
-	 * labeled alternative in {@link PsicoderParser#ps}.
-	 * @param ctx the parse tree
-	 */
-	void exitPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code psB}
 	 * labeled alternative in {@link PsicoderParser#ps}.
 	 * @param ctx the parse tree
@@ -43,17 +31,17 @@ public interface PsicoderListener extends ParseTreeListener {
 	 */
 	void exitPsB(PsicoderParser.PsBContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code bElement}
-	 * labeled alternative in {@link PsicoderParser#b}.
+	 * Enter a parse tree produced by the {@code psEpsilon}
+	 * labeled alternative in {@link PsicoderParser#ps}.
 	 * @param ctx the parse tree
 	 */
-	void enterBElement(PsicoderParser.BElementContext ctx);
+	void enterPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code bElement}
-	 * labeled alternative in {@link PsicoderParser#b}.
+	 * Exit a parse tree produced by the {@code psEpsilon}
+	 * labeled alternative in {@link PsicoderParser#ps}.
 	 * @param ctx the parse tree
 	 */
-	void exitBElement(PsicoderParser.BElementContext ctx);
+	void exitPsEpsilon(PsicoderParser.PsEpsilonContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code bFuncionPrincipal}
 	 * labeled alternative in {@link PsicoderParser#b}.
@@ -66,18 +54,6 @@ public interface PsicoderListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBFuncionPrincipal(PsicoderParser.BFuncionPrincipalContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code bEpsilon}
-	 * labeled alternative in {@link PsicoderParser#b}.
-	 * @param ctx the parse tree
-	 */
-	void enterBEpsilon(PsicoderParser.BEpsilonContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bEpsilon}
-	 * labeled alternative in {@link PsicoderParser#b}.
-	 * @param ctx the parse tree
-	 */
-	void exitBEpsilon(PsicoderParser.BEpsilonContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code elementFuncion}
 	 * labeled alternative in {@link PsicoderParser#element}.

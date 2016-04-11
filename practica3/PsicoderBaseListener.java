@@ -27,18 +27,6 @@ public class PsicoderBaseListener implements PsicoderListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPsEpsilon(PsicoderParser.PsEpsilonContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPsEpsilon(PsicoderParser.PsEpsilonContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPsB(PsicoderParser.PsBContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -51,13 +39,13 @@ public class PsicoderBaseListener implements PsicoderListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBElement(PsicoderParser.BElementContext ctx) { }
+	@Override public void enterPsEpsilon(PsicoderParser.PsEpsilonContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBElement(PsicoderParser.BElementContext ctx) { }
+	@Override public void exitPsEpsilon(PsicoderParser.PsEpsilonContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -70,18 +58,6 @@ public class PsicoderBaseListener implements PsicoderListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBFuncionPrincipal(PsicoderParser.BFuncionPrincipalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBEpsilon(PsicoderParser.BEpsilonContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBEpsilon(PsicoderParser.BEpsilonContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

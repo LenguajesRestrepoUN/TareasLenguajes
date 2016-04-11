@@ -24,9 +24,12 @@ public class Interpreter {
             //ParseTreeWalker walker = new ParseTreeWalker();
             //walker.walk(new PsicoderBaseListener(), tree);
             //System.out.println();
+
+            System.out.println(tree.toStringTree(parser));
             Visitor visitor = new Visitor();
             visitor.visit(tree);
-            System.out.println(tree.toStringTree(parser));
+            System.out.println();
+
         } catch (Exception e) {
             System.err.println("Error (Test): " + e);
         }

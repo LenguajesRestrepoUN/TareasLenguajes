@@ -123,11 +123,11 @@ public class PsicoderParser extends Parser {
 		}
 	}
 	public static class PsElementContext extends PsContext {
-		public PsContext ps() {
-			return getRuleContext(PsContext.class,0);
-		}
 		public ElementContext element() {
 			return getRuleContext(ElementContext.class,0);
+		}
+		public PsContext ps() {
+			return getRuleContext(PsContext.class,0);
 		}
 		public PsElementContext(PsContext ctx) { copyFrom(ctx); }
 		@Override
@@ -181,63 +181,35 @@ public class PsicoderParser extends Parser {
 	}
 
 	public final PsContext ps() throws RecognitionException {
-		return ps(0);
-	}
-
-	private PsContext ps(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		PsContext _localctx = new PsContext(_ctx, _parentState);
-		PsContext _prevctx = _localctx;
-		int _startState = 0;
-		enterRecursionRule(_localctx, 0, RULE_ps, _p);
+		PsContext _localctx = new PsContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_ps);
 		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(47);
+			setState(49);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
+				_localctx = new PsElementContext(_localctx);
+				enterOuterAlt(_localctx, 1);
 				{
-				_localctx = new PsBContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-
+				setState(44);
+				element();
 				setState(45);
-				b();
+				ps();
 				}
 				break;
 			case 2:
+				_localctx = new PsBContext(_localctx);
+				enterOuterAlt(_localctx, 2);
 				{
-				_localctx = new PsEpsilonContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
+				setState(47);
+				b();
 				}
 				break;
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(53);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new PsElementContext(new PsContext(_parentctx, _parentState));
-					pushNewRecursionContext(_localctx, _startState, RULE_ps);
-					setState(49);
-					if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-					setState(50);
-					element();
-					}
-					} 
+			case 3:
+				_localctx = new PsEpsilonContext(_localctx);
+				enterOuterAlt(_localctx, 3);
+				{
 				}
-				setState(55);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-			}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -246,7 +218,7 @@ public class PsicoderParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
@@ -283,79 +255,20 @@ public class PsicoderParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class BElementContext extends BContext {
-		public ElementContext element() {
-			return getRuleContext(ElementContext.class,0);
-		}
-		public PsContext ps() {
-			return getRuleContext(PsContext.class,0);
-		}
-		public BElementContext(BContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PsicoderListener ) ((PsicoderListener)listener).enterBElement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PsicoderListener ) ((PsicoderListener)listener).exitBElement(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof PsicoderVisitor ) return ((PsicoderVisitor<? extends T>)visitor).visitBElement(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class BEpsilonContext extends BContext {
-		public BEpsilonContext(BContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PsicoderListener ) ((PsicoderListener)listener).enterBEpsilon(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PsicoderListener ) ((PsicoderListener)listener).exitBEpsilon(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof PsicoderVisitor ) return ((PsicoderVisitor<? extends T>)visitor).visitBEpsilon(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 
 	public final BContext b() throws RecognitionException {
 		BContext _localctx = new BContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_b);
 		try {
-			setState(64);
-			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
-			case 1:
-				_localctx = new BElementContext(_localctx);
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(56);
-				element();
-				setState(57);
-				ps(0);
-				}
-				break;
-			case 2:
-				_localctx = new BFuncionPrincipalContext(_localctx);
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(59);
-				match(FUNCION_PRINCIPAL);
-				setState(60);
-				statements();
-				setState(61);
-				match(FIN_PRINCIPAL);
-				}
-				break;
-			case 3:
-				_localctx = new BEpsilonContext(_localctx);
-				enterOuterAlt(_localctx, 3);
-				{
-				}
-				break;
+			_localctx = new BFuncionPrincipalContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(51);
+			match(FUNCION_PRINCIPAL);
+			setState(52);
+			statements();
+			setState(53);
+			match(FIN_PRINCIPAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -443,35 +356,35 @@ public class PsicoderParser extends Parser {
 		ElementContext _localctx = new ElementContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_element);
 		try {
-			setState(84);
+			setState(73);
 			switch (_input.LA(1)) {
 			case FUNCION:
 				_localctx = new ElementFuncionContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(66);
+				setState(55);
 				match(FUNCION);
-				setState(67);
+				setState(56);
 				type();
-				setState(68);
+				setState(57);
 				match(ID);
-				setState(69);
+				setState(58);
 				match(TK_PAR_IZQ);
-				setState(70);
+				setState(59);
 				optparams();
-				setState(71);
+				setState(60);
 				match(TK_PAR_DER);
-				setState(72);
+				setState(61);
 				match(HACER);
-				setState(73);
+				setState(62);
 				statements();
-				setState(74);
+				setState(63);
 				match(RETORNAR);
-				setState(75);
+				setState(64);
 				exp(0);
-				setState(76);
+				setState(65);
 				match(TK_PYC);
-				setState(77);
+				setState(66);
 				match(FIN_FUNCION);
 				}
 				break;
@@ -479,13 +392,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new ElementEstructuraContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(79);
+				setState(68);
 				match(ESTRUCTURA);
-				setState(80);
+				setState(69);
 				match(ID);
-				setState(81);
+				setState(70);
 				statements4();
-				setState(82);
+				setState(71);
 				match(FIN_ESTRUCTURA);
 				}
 				break;
@@ -622,13 +535,13 @@ public class PsicoderParser extends Parser {
 		TypeContext _localctx = new TypeContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_type);
 		try {
-			setState(92);
+			setState(81);
 			switch (_input.LA(1)) {
 			case ENTERO:
 				_localctx = new TypeEnteroContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(86);
+				setState(75);
 				match(ENTERO);
 				}
 				break;
@@ -636,7 +549,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new TypeCaracterContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(87);
+				setState(76);
 				match(CARACTER);
 				}
 				break;
@@ -644,7 +557,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new TypeCadenaContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(88);
+				setState(77);
 				match(CADENA);
 				}
 				break;
@@ -652,7 +565,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new TypeRealContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(89);
+				setState(78);
 				match(REAL);
 				}
 				break;
@@ -660,7 +573,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new TypeBooleanoContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(90);
+				setState(79);
 				match(BOOLEANO);
 				}
 				break;
@@ -668,7 +581,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new TypeIDContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(91);
+				setState(80);
 				match(ID);
 				}
 				break;
@@ -738,7 +651,7 @@ public class PsicoderParser extends Parser {
 		OptparamsContext _localctx = new OptparamsContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_optparams);
 		try {
-			setState(96);
+			setState(85);
 			switch (_input.LA(1)) {
 			case CARACTER:
 			case CADENA:
@@ -749,7 +662,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptparamsPContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(94);
+				setState(83);
 				params();
 				}
 				break;
@@ -834,19 +747,19 @@ public class PsicoderParser extends Parser {
 		ParamsContext _localctx = new ParamsContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_params);
 		try {
-			setState(106);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			setState(95);
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				_localctx = new ParamsTypeIDComaContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(98);
+				setState(87);
 				type();
-				setState(99);
+				setState(88);
 				match(ID);
-				setState(100);
+				setState(89);
 				match(TK_COMA);
-				setState(101);
+				setState(90);
 				params();
 				}
 				break;
@@ -854,9 +767,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ParamsTypeIDContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(103);
+				setState(92);
 				type();
-				setState(104);
+				setState(93);
 				match(ID);
 				}
 				break;
@@ -924,7 +837,7 @@ public class PsicoderParser extends Parser {
 		OptpargsContext _localctx = new OptpargsContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_optpargs);
 		try {
-			setState(110);
+			setState(99);
 			switch (_input.LA(1)) {
 			case TK_CARACTER:
 			case VERDADERO:
@@ -939,7 +852,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptpargsArgsContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(108);
+				setState(97);
 				args();
 				}
 				break;
@@ -1022,17 +935,17 @@ public class PsicoderParser extends Parser {
 		ArgsContext _localctx = new ArgsContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_args);
 		try {
-			setState(117);
-			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			setState(106);
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				_localctx = new ArgsExpParamsContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(112);
+				setState(101);
 				exp(0);
-				setState(113);
+				setState(102);
 				match(TK_COMA);
-				setState(114);
+				setState(103);
 				params();
 				}
 				break;
@@ -1040,7 +953,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ArgsExpContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(116);
+				setState(105);
 				exp(0);
 				}
 				break;
@@ -1111,7 +1024,7 @@ public class PsicoderParser extends Parser {
 		StatementsContext _localctx = new StatementsContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_statements);
 		try {
-			setState(123);
+			setState(112);
 			switch (_input.LA(1)) {
 			case LEER:
 			case SI:
@@ -1129,9 +1042,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new StatementsEpsilonStmtContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(119);
+				setState(108);
 				stmt();
-				setState(120);
+				setState(109);
 				statements();
 				}
 				break;
@@ -1213,15 +1126,15 @@ public class PsicoderParser extends Parser {
 		Statements3Context _localctx = new Statements3Context(_ctx, getState());
 		enterRule(_localctx, 18, RULE_statements3);
 		try {
-			setState(129);
-			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			setState(118);
+			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				_localctx = new Statements3StmtContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(125);
+				setState(114);
 				stmt2();
-				setState(126);
+				setState(115);
 				statements3();
 				}
 				break;
@@ -1298,7 +1211,7 @@ public class PsicoderParser extends Parser {
 		Statements4Context _localctx = new Statements4Context(_ctx, getState());
 		enterRule(_localctx, 20, RULE_statements4);
 		try {
-			setState(135);
+			setState(124);
 			switch (_input.LA(1)) {
 			case CARACTER:
 			case CADENA:
@@ -1309,9 +1222,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new Statements4StmtContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(131);
+				setState(120);
 				stmt4();
-				setState(132);
+				setState(121);
 				statements4();
 				}
 				break;
@@ -1763,21 +1676,21 @@ public class PsicoderParser extends Parser {
 		StmtContext _localctx = new StmtContext(_ctx, getState());
 		enterRule(_localctx, 22, RULE_stmt);
 		try {
-			setState(251);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			setState(240);
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				_localctx = new StmtCallFunctionContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(137);
+				setState(126);
 				match(ID);
-				setState(138);
+				setState(127);
 				match(TK_PAR_IZQ);
-				setState(139);
+				setState(128);
 				optpargs();
-				setState(140);
+				setState(129);
 				match(TK_PAR_DER);
-				setState(141);
+				setState(130);
 				match(TK_PYC);
 				}
 				break;
@@ -1785,19 +1698,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtTypeAsigContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(143);
+				setState(132);
 				type();
-				setState(144);
+				setState(133);
 				match(ID);
-				setState(145);
+				setState(134);
 				match(TK_ASIG);
-				setState(146);
+				setState(135);
 				exp(0);
-				setState(147);
+				setState(136);
 				match(TK_COMA);
-				setState(148);
+				setState(137);
 				optexp();
-				setState(149);
+				setState(138);
 				match(TK_PYC);
 				}
 				break;
@@ -1805,15 +1718,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtTypeAsigOptexpContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(151);
+				setState(140);
 				type();
-				setState(152);
+				setState(141);
 				match(ID);
-				setState(153);
+				setState(142);
 				match(TK_COMA);
-				setState(154);
+				setState(143);
 				optexp();
-				setState(155);
+				setState(144);
 				match(TK_PYC);
 				}
 				break;
@@ -1821,13 +1734,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtIDAsigContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(157);
+				setState(146);
 				match(ID);
-				setState(158);
+				setState(147);
 				match(TK_ASIG);
-				setState(159);
+				setState(148);
 				exp(0);
-				setState(160);
+				setState(149);
 				match(TK_PYC);
 				}
 				break;
@@ -1835,15 +1748,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtTypeAsifExpContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(162);
+				setState(151);
 				type();
-				setState(163);
+				setState(152);
 				match(ID);
-				setState(164);
+				setState(153);
 				match(TK_ASIG);
-				setState(165);
+				setState(154);
 				exp(0);
-				setState(166);
+				setState(155);
 				match(TK_PYC);
 				}
 				break;
@@ -1851,17 +1764,17 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtIDChainContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(168);
+				setState(157);
 				match(ID);
-				setState(169);
+				setState(158);
 				match(TK_PUNTO);
-				setState(170);
+				setState(159);
 				chain();
-				setState(171);
+				setState(160);
 				match(TK_ASIG);
-				setState(172);
+				setState(161);
 				exp(0);
-				setState(173);
+				setState(162);
 				match(TK_PYC);
 				}
 				break;
@@ -1869,11 +1782,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtIDContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(175);
+				setState(164);
 				type();
-				setState(176);
+				setState(165);
 				match(ID);
-				setState(177);
+				setState(166);
 				match(TK_PYC);
 				}
 				break;
@@ -1881,19 +1794,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtSiContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(179);
+				setState(168);
 				match(SI);
-				setState(180);
+				setState(169);
 				match(TK_PAR_IZQ);
-				setState(181);
+				setState(170);
 				exp(0);
-				setState(182);
+				setState(171);
 				match(TK_PAR_DER);
-				setState(183);
+				setState(172);
 				match(ENTONCES);
-				setState(184);
+				setState(173);
 				statements();
-				setState(185);
+				setState(174);
 				match(FIN_SI);
 				}
 				break;
@@ -1901,23 +1814,23 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtSiNoContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(187);
+				setState(176);
 				match(SI);
-				setState(188);
+				setState(177);
 				match(TK_PAR_IZQ);
-				setState(189);
+				setState(178);
 				exp(0);
-				setState(190);
+				setState(179);
 				match(TK_PAR_DER);
-				setState(191);
+				setState(180);
 				match(ENTONCES);
-				setState(192);
+				setState(181);
 				statements();
-				setState(193);
+				setState(182);
 				match(SI_NO);
-				setState(194);
+				setState(183);
 				statements();
-				setState(195);
+				setState(184);
 				match(FIN_SI);
 				}
 				break;
@@ -1925,15 +1838,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtLeerIDContext(_localctx);
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(197);
+				setState(186);
 				match(LEER);
-				setState(198);
+				setState(187);
 				match(TK_PAR_IZQ);
-				setState(199);
+				setState(188);
 				match(ID);
-				setState(200);
+				setState(189);
 				match(TK_PAR_DER);
-				setState(201);
+				setState(190);
 				match(TK_PYC);
 				}
 				break;
@@ -1941,19 +1854,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtLeerChainContext(_localctx);
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(202);
+				setState(191);
 				match(LEER);
-				setState(203);
+				setState(192);
 				match(TK_PAR_IZQ);
-				setState(204);
+				setState(193);
 				match(ID);
-				setState(205);
+				setState(194);
 				match(TK_PUNTO);
-				setState(206);
+				setState(195);
 				chain();
-				setState(207);
+				setState(196);
 				match(TK_PAR_DER);
-				setState(208);
+				setState(197);
 				match(TK_PYC);
 				}
 				break;
@@ -1961,15 +1874,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtImprimirContext(_localctx);
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(210);
+				setState(199);
 				match(IMPRIMIR);
-				setState(211);
+				setState(200);
 				match(TK_PAR_IZQ);
-				setState(212);
+				setState(201);
 				imp_params();
-				setState(213);
+				setState(202);
 				match(TK_PAR_DER);
-				setState(214);
+				setState(203);
 				match(TK_PYC);
 				}
 				break;
@@ -1977,25 +1890,25 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtParaContext(_localctx);
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(216);
+				setState(205);
 				match(PARA);
-				setState(217);
+				setState(206);
 				match(TK_PAR_IZQ);
-				setState(218);
+				setState(207);
 				stmt();
-				setState(219);
+				setState(208);
 				exp(0);
-				setState(220);
+				setState(209);
 				match(TK_PYC);
-				setState(221);
+				setState(210);
 				exp(0);
-				setState(222);
+				setState(211);
 				match(TK_PAR_DER);
-				setState(223);
+				setState(212);
 				match(HACER);
-				setState(224);
+				setState(213);
 				statements3();
-				setState(225);
+				setState(214);
 				match(FIN_PARA);
 				}
 				break;
@@ -2003,19 +1916,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtMientrasContext(_localctx);
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(227);
+				setState(216);
 				match(MIENTRAS);
-				setState(228);
+				setState(217);
 				match(TK_PAR_IZQ);
-				setState(229);
+				setState(218);
 				exp(0);
-				setState(230);
+				setState(219);
 				match(TK_PAR_DER);
-				setState(231);
+				setState(220);
 				match(HACER);
-				setState(232);
+				setState(221);
 				statements3();
-				setState(233);
+				setState(222);
 				match(FIN_MIENTRAS);
 				}
 				break;
@@ -2023,19 +1936,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtHacerContext(_localctx);
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(235);
+				setState(224);
 				match(HACER);
-				setState(236);
+				setState(225);
 				statements3();
-				setState(237);
+				setState(226);
 				match(MIENTRAS);
-				setState(238);
+				setState(227);
 				match(TK_PAR_IZQ);
-				setState(239);
+				setState(228);
 				exp(0);
-				setState(240);
+				setState(229);
 				match(TK_PAR_DER);
-				setState(241);
+				setState(230);
 				match(TK_PYC);
 				}
 				break;
@@ -2043,19 +1956,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new StmtSeleccionarContext(_localctx);
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(243);
+				setState(232);
 				match(SELECCIONAR);
-				setState(244);
+				setState(233);
 				match(TK_PAR_IZQ);
-				setState(245);
+				setState(234);
 				match(ID);
-				setState(246);
+				setState(235);
 				match(TK_PAR_DER);
-				setState(247);
+				setState(236);
 				match(ENTRE);
-				setState(248);
+				setState(237);
 				cases();
-				setState(249);
+				setState(238);
 				match(FIN_SELECCIONAR);
 				}
 				break;
@@ -2134,21 +2047,21 @@ public class PsicoderParser extends Parser {
 		CasesContext _localctx = new CasesContext(_ctx, getState());
 		enterRule(_localctx, 24, RULE_cases);
 		try {
-			setState(260);
+			setState(249);
 			switch (_input.LA(1)) {
 			case CASO:
 				_localctx = new CasesCasoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(253);
+				setState(242);
 				match(CASO);
-				setState(254);
+				setState(243);
 				exp(0);
-				setState(255);
+				setState(244);
 				match(TK_POSD);
-				setState(256);
+				setState(245);
 				statements3();
-				setState(257);
+				setState(246);
 				cases2();
 				}
 				break;
@@ -2156,7 +2069,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new CasesDefectoContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(259);
+				setState(248);
 				deft();
 				}
 				break;
@@ -2253,21 +2166,21 @@ public class PsicoderParser extends Parser {
 		Cases2Context _localctx = new Cases2Context(_ctx, getState());
 		enterRule(_localctx, 26, RULE_cases2);
 		try {
-			setState(270);
+			setState(259);
 			switch (_input.LA(1)) {
 			case CASO:
 				_localctx = new Cases2cacsoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(262);
+				setState(251);
 				match(CASO);
-				setState(263);
+				setState(252);
 				exp(0);
-				setState(264);
+				setState(253);
 				match(TK_POSD);
-				setState(265);
+				setState(254);
 				statements3();
-				setState(266);
+				setState(255);
 				cases2();
 				}
 				break;
@@ -2281,7 +2194,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new Cases2DefectoContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(269);
+				setState(258);
 				deft();
 				}
 				break;
@@ -2331,11 +2244,11 @@ public class PsicoderParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(272);
+			setState(261);
 			match(DEFECTO);
-			setState(273);
+			setState(262);
 			match(TK_POSD);
-			setState(274);
+			setState(263);
 			statements3();
 			}
 		}
@@ -2408,17 +2321,17 @@ public class PsicoderParser extends Parser {
 		Imp_paramsContext _localctx = new Imp_paramsContext(_ctx, getState());
 		enterRule(_localctx, 30, RULE_imp_params);
 		try {
-			setState(281);
-			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
+			setState(270);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				_localctx = new Imp_paramsChainContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(276);
+				setState(265);
 				exp(0);
-				setState(277);
+				setState(266);
 				match(TK_COMA);
-				setState(278);
+				setState(267);
 				imp_params();
 				}
 				break;
@@ -2426,7 +2339,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new Imp_paramsExpContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(280);
+				setState(269);
 				exp(0);
 				}
 				break;
@@ -2543,17 +2456,17 @@ public class PsicoderParser extends Parser {
 		OptexpContext _localctx = new OptexpContext(_ctx, getState());
 		enterRule(_localctx, 32, RULE_optexp);
 		try {
-			setState(296);
-			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
+			setState(285);
+			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				_localctx = new OptexpIDComaContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(283);
+				setState(272);
 				match(ID);
-				setState(284);
+				setState(273);
 				match(TK_COMA);
-				setState(285);
+				setState(274);
 				optexp();
 				}
 				break;
@@ -2561,15 +2474,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptexpIDAsigExpComaContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(286);
+				setState(275);
 				match(ID);
-				setState(287);
+				setState(276);
 				match(TK_ASIG);
-				setState(288);
+				setState(277);
 				exp(0);
-				setState(289);
+				setState(278);
 				match(TK_COMA);
-				setState(290);
+				setState(279);
 				optexp();
 				}
 				break;
@@ -2577,7 +2490,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptexpIDContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(292);
+				setState(281);
 				match(ID);
 				}
 				break;
@@ -2585,11 +2498,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptexpIDAsigExpContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(293);
+				setState(282);
 				match(ID);
-				setState(294);
+				setState(283);
 				match(TK_ASIG);
-				setState(295);
+				setState(284);
 				exp(0);
 				}
 				break;
@@ -2660,17 +2573,17 @@ public class PsicoderParser extends Parser {
 		ChainContext _localctx = new ChainContext(_ctx, getState());
 		enterRule(_localctx, 34, RULE_chain);
 		try {
-			setState(302);
-			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
+			setState(291);
+			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				_localctx = new ChainIDPuntoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(298);
+				setState(287);
 				match(ID);
-				setState(299);
+				setState(288);
 				match(TK_PUNTO);
-				setState(300);
+				setState(289);
 				chain();
 				}
 				break;
@@ -2678,7 +2591,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ChainIDContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(301);
+				setState(290);
 				match(ID);
 				}
 				break;
@@ -3358,15 +3271,15 @@ public class PsicoderParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(354);
-			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
+			setState(343);
+			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				{
 				_localctx = new ExpCaracterContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(305);
+				setState(294);
 				match(TK_CARACTER);
 				}
 				break;
@@ -3375,7 +3288,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpIDContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(306);
+				setState(295);
 				match(ID);
 				}
 				break;
@@ -3384,11 +3297,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpIDChainContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(307);
+				setState(296);
 				match(ID);
-				setState(308);
+				setState(297);
 				match(TK_PUNTO);
-				setState(309);
+				setState(298);
 				chain();
 				}
 				break;
@@ -3397,7 +3310,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpEnteroContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(310);
+				setState(299);
 				match(TK_ENTERO);
 				}
 				break;
@@ -3406,7 +3319,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpRealContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(311);
+				setState(300);
 				match(TK_REAL);
 				}
 				break;
@@ -3415,7 +3328,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpCadenaContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(312);
+				setState(301);
 				match(TK_CADENA);
 				}
 				break;
@@ -3424,7 +3337,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpVerdaderoContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(313);
+				setState(302);
 				match(VERDADERO);
 				}
 				break;
@@ -3433,7 +3346,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpFalsoContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(314);
+				setState(303);
 				match(FALSO);
 				}
 				break;
@@ -3442,9 +3355,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpMenosRealContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(315);
+				setState(304);
 				match(TK_MENOS);
-				setState(316);
+				setState(305);
 				match(TK_REAL);
 				}
 				break;
@@ -3453,9 +3366,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpMenosEnteroContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(317);
+				setState(306);
 				match(TK_MENOS);
-				setState(318);
+				setState(307);
 				match(TK_ENTERO);
 				}
 				break;
@@ -3464,9 +3377,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpMenosIDContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(319);
+				setState(308);
 				match(TK_MENOS);
-				setState(320);
+				setState(309);
 				match(ID);
 				}
 				break;
@@ -3475,13 +3388,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpIDChainContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(321);
+				setState(310);
 				match(TK_MENOS);
-				setState(322);
+				setState(311);
 				match(ID);
-				setState(323);
+				setState(312);
 				match(TK_PUNTO);
-				setState(324);
+				setState(313);
 				chain();
 				}
 				break;
@@ -3490,13 +3403,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpParExpContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(325);
+				setState(314);
 				match(TK_MENOS);
-				setState(326);
+				setState(315);
 				match(TK_PAR_IZQ);
-				setState(327);
+				setState(316);
 				exp(0);
-				setState(328);
+				setState(317);
 				match(TK_PAR_DER);
 				}
 				break;
@@ -3505,9 +3418,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpNegIDContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(330);
+				setState(319);
 				match(TK_NEG);
-				setState(331);
+				setState(320);
 				match(ID);
 				}
 				break;
@@ -3516,13 +3429,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpNegChainContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(332);
+				setState(321);
 				match(TK_NEG);
-				setState(333);
+				setState(322);
 				match(ID);
-				setState(334);
+				setState(323);
 				match(TK_PUNTO);
-				setState(335);
+				setState(324);
 				chain();
 				}
 				break;
@@ -3531,9 +3444,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpNegVerdaderoContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(336);
+				setState(325);
 				match(TK_NEG);
-				setState(337);
+				setState(326);
 				match(VERDADERO);
 				}
 				break;
@@ -3542,9 +3455,9 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpNegFalsoContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(338);
+				setState(327);
 				match(TK_NEG);
-				setState(339);
+				setState(328);
 				match(FALSO);
 				}
 				break;
@@ -3553,13 +3466,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpNegParExpContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(340);
+				setState(329);
 				match(TK_NEG);
-				setState(341);
+				setState(330);
 				match(TK_PAR_IZQ);
-				setState(342);
+				setState(331);
 				exp(0);
-				setState(343);
+				setState(332);
 				match(TK_PAR_DER);
 				}
 				break;
@@ -3568,11 +3481,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpParExpContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(345);
+				setState(334);
 				match(TK_PAR_IZQ);
-				setState(346);
+				setState(335);
 				exp(0);
-				setState(347);
+				setState(336);
 				match(TK_PAR_DER);
 				}
 				break;
@@ -3581,37 +3494,37 @@ public class PsicoderParser extends Parser {
 				_localctx = new ExpFuncionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(349);
+				setState(338);
 				match(ID);
-				setState(350);
+				setState(339);
 				match(TK_PAR_IZQ);
-				setState(351);
+				setState(340);
 				optargs();
-				setState(352);
+				setState(341);
 				match(TK_PAR_DER);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(397);
+			setState(386);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,18,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(395);
-					switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
+					setState(384);
+					switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ExpOrContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(356);
+						setState(345);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(357);
+						setState(346);
 						match(TK_O);
-						setState(358);
+						setState(347);
 						exp(14);
 						}
 						break;
@@ -3619,11 +3532,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpAndContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(359);
+						setState(348);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(360);
+						setState(349);
 						match(TK_Y);
-						setState(361);
+						setState(350);
 						exp(13);
 						}
 						break;
@@ -3631,11 +3544,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpIgualContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(362);
+						setState(351);
 						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
-						setState(363);
+						setState(352);
 						match(TK_IGUAL);
-						setState(364);
+						setState(353);
 						exp(12);
 						}
 						break;
@@ -3643,11 +3556,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMenorContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(365);
+						setState(354);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-						setState(366);
+						setState(355);
 						match(TK_MENOR);
-						setState(367);
+						setState(356);
 						exp(11);
 						}
 						break;
@@ -3655,11 +3568,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMayorContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(368);
+						setState(357);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(369);
+						setState(358);
 						match(TK_MAYOR);
-						setState(370);
+						setState(359);
 						exp(10);
 						}
 						break;
@@ -3667,11 +3580,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMenorIgualContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(371);
+						setState(360);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(372);
+						setState(361);
 						match(TK_MENOR_IGUAL);
-						setState(373);
+						setState(362);
 						exp(9);
 						}
 						break;
@@ -3679,11 +3592,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMayorIgualContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(374);
+						setState(363);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(375);
+						setState(364);
 						match(TK_MAYOR_IGUAL);
-						setState(376);
+						setState(365);
 						exp(8);
 						}
 						break;
@@ -3691,11 +3604,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpDifContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(377);
+						setState(366);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(378);
+						setState(367);
 						match(TK_DIF);
-						setState(379);
+						setState(368);
 						exp(7);
 						}
 						break;
@@ -3703,11 +3616,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMasContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(380);
+						setState(369);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(381);
+						setState(370);
 						match(TK_MAS);
-						setState(382);
+						setState(371);
 						exp(6);
 						}
 						break;
@@ -3715,11 +3628,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMenosContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(383);
+						setState(372);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(384);
+						setState(373);
 						match(TK_MENOS);
-						setState(385);
+						setState(374);
 						exp(5);
 						}
 						break;
@@ -3727,11 +3640,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpMultContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(386);
+						setState(375);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(387);
+						setState(376);
 						match(TK_MULT);
-						setState(388);
+						setState(377);
 						exp(4);
 						}
 						break;
@@ -3739,11 +3652,11 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpDivContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(389);
+						setState(378);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(390);
+						setState(379);
 						match(TK_DIV);
-						setState(391);
+						setState(380);
 						exp(3);
 						}
 						break;
@@ -3751,20 +3664,20 @@ public class PsicoderParser extends Parser {
 						{
 						_localctx = new ExpModuloContext(new ExpContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_exp);
-						setState(392);
+						setState(381);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(393);
+						setState(382);
 						match(TK_MOD);
-						setState(394);
+						setState(383);
 						exp(2);
 						}
 						break;
 					}
 					} 
 				}
-				setState(399);
+				setState(388);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,18,_ctx);
 			}
 			}
 		}
@@ -3830,7 +3743,7 @@ public class PsicoderParser extends Parser {
 		OptargsContext _localctx = new OptargsContext(_ctx, getState());
 		enterRule(_localctx, 38, RULE_optargs);
 		try {
-			setState(402);
+			setState(391);
 			switch (_input.LA(1)) {
 			case TK_CARACTER:
 			case VERDADERO:
@@ -3845,7 +3758,7 @@ public class PsicoderParser extends Parser {
 				_localctx = new OptargsArgsContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(400);
+				setState(389);
 				args();
 				}
 				break;
@@ -4315,15 +4228,15 @@ public class PsicoderParser extends Parser {
 		Stmt2Context _localctx = new Stmt2Context(_ctx, getState());
 		enterRule(_localctx, 40, RULE_stmt2);
 		try {
-			setState(520);
-			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
+			setState(509);
+			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
 			case 1:
 				_localctx = new Stmt2RomperContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(404);
+				setState(393);
 				match(ROMPER);
-				setState(405);
+				setState(394);
 				match(TK_PYC);
 				}
 				break;
@@ -4331,15 +4244,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2CallFunctionContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(406);
+				setState(395);
 				match(ID);
-				setState(407);
+				setState(396);
 				match(TK_PAR_IZQ);
-				setState(408);
+				setState(397);
 				optpargs();
-				setState(409);
+				setState(398);
 				match(TK_PAR_DER);
-				setState(410);
+				setState(399);
 				match(TK_PYC);
 				}
 				break;
@@ -4347,19 +4260,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2TypeAsigContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(412);
+				setState(401);
 				type();
-				setState(413);
+				setState(402);
 				match(ID);
-				setState(414);
+				setState(403);
 				match(TK_ASIG);
-				setState(415);
+				setState(404);
 				exp(0);
-				setState(416);
+				setState(405);
 				match(TK_COMA);
-				setState(417);
+				setState(406);
 				optexp();
-				setState(418);
+				setState(407);
 				match(TK_PYC);
 				}
 				break;
@@ -4367,15 +4280,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2TypeAsigOptexpContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(420);
+				setState(409);
 				type();
-				setState(421);
+				setState(410);
 				match(ID);
-				setState(422);
+				setState(411);
 				match(TK_COMA);
-				setState(423);
+				setState(412);
 				optexp();
-				setState(424);
+				setState(413);
 				match(TK_PYC);
 				}
 				break;
@@ -4383,13 +4296,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2IDAsigContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(426);
+				setState(415);
 				match(ID);
-				setState(427);
+				setState(416);
 				match(TK_ASIG);
-				setState(428);
+				setState(417);
 				exp(0);
-				setState(429);
+				setState(418);
 				match(TK_PYC);
 				}
 				break;
@@ -4397,15 +4310,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2TypeAsifExpContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(431);
+				setState(420);
 				type();
-				setState(432);
+				setState(421);
 				match(ID);
-				setState(433);
+				setState(422);
 				match(TK_ASIG);
-				setState(434);
+				setState(423);
 				exp(0);
-				setState(435);
+				setState(424);
 				match(TK_PYC);
 				}
 				break;
@@ -4413,17 +4326,17 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2IDChainContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(437);
+				setState(426);
 				match(ID);
-				setState(438);
+				setState(427);
 				match(TK_PUNTO);
-				setState(439);
+				setState(428);
 				chain();
-				setState(440);
+				setState(429);
 				match(TK_ASIG);
-				setState(441);
+				setState(430);
 				exp(0);
-				setState(442);
+				setState(431);
 				match(TK_PYC);
 				}
 				break;
@@ -4431,11 +4344,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2IDContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(444);
+				setState(433);
 				type();
-				setState(445);
+				setState(434);
 				match(ID);
-				setState(446);
+				setState(435);
 				match(TK_PYC);
 				}
 				break;
@@ -4443,19 +4356,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2SiContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(448);
+				setState(437);
 				match(SI);
-				setState(449);
+				setState(438);
 				match(TK_PAR_IZQ);
-				setState(450);
+				setState(439);
 				exp(0);
-				setState(451);
+				setState(440);
 				match(TK_PAR_DER);
-				setState(452);
+				setState(441);
 				match(ENTONCES);
-				setState(453);
+				setState(442);
 				statements3();
-				setState(454);
+				setState(443);
 				match(FIN_SI);
 				}
 				break;
@@ -4463,23 +4376,23 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2SiNoContext(_localctx);
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(456);
+				setState(445);
 				match(SI);
-				setState(457);
+				setState(446);
 				match(TK_PAR_IZQ);
-				setState(458);
+				setState(447);
 				exp(0);
-				setState(459);
+				setState(448);
 				match(TK_PAR_DER);
-				setState(460);
+				setState(449);
 				match(ENTONCES);
-				setState(461);
+				setState(450);
 				statements3();
-				setState(462);
+				setState(451);
 				match(SI_NO);
-				setState(463);
+				setState(452);
 				statements3();
-				setState(464);
+				setState(453);
 				match(FIN_SI);
 				}
 				break;
@@ -4487,19 +4400,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2LeerIDContext(_localctx);
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(466);
+				setState(455);
 				match(LEER);
-				setState(467);
+				setState(456);
 				match(TK_PAR_IZQ);
-				setState(468);
+				setState(457);
 				match(ID);
-				setState(469);
+				setState(458);
 				match(TK_PUNTO);
-				setState(470);
+				setState(459);
 				chain();
-				setState(471);
+				setState(460);
 				match(TK_PAR_DER);
-				setState(472);
+				setState(461);
 				match(TK_PYC);
 				}
 				break;
@@ -4507,15 +4420,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2LeerChainContext(_localctx);
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(474);
+				setState(463);
 				match(LEER);
-				setState(475);
+				setState(464);
 				match(TK_PAR_IZQ);
-				setState(476);
+				setState(465);
 				match(ID);
-				setState(477);
+				setState(466);
 				match(TK_PAR_DER);
-				setState(478);
+				setState(467);
 				match(TK_PYC);
 				}
 				break;
@@ -4523,15 +4436,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2ImprimirContext(_localctx);
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(479);
+				setState(468);
 				match(IMPRIMIR);
-				setState(480);
+				setState(469);
 				match(TK_PAR_IZQ);
-				setState(481);
+				setState(470);
 				imp_params();
-				setState(482);
+				setState(471);
 				match(TK_PAR_DER);
-				setState(483);
+				setState(472);
 				match(TK_PYC);
 				}
 				break;
@@ -4539,25 +4452,25 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2ParaContext(_localctx);
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(485);
+				setState(474);
 				match(PARA);
-				setState(486);
+				setState(475);
 				match(TK_PAR_IZQ);
-				setState(487);
+				setState(476);
 				stmt();
-				setState(488);
+				setState(477);
 				exp(0);
-				setState(489);
+				setState(478);
 				match(TK_PYC);
-				setState(490);
+				setState(479);
 				exp(0);
-				setState(491);
+				setState(480);
 				match(TK_PAR_DER);
-				setState(492);
+				setState(481);
 				match(HACER);
-				setState(493);
+				setState(482);
 				statements3();
-				setState(494);
+				setState(483);
 				match(FIN_PARA);
 				}
 				break;
@@ -4565,19 +4478,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2MientrasContext(_localctx);
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(496);
+				setState(485);
 				match(MIENTRAS);
-				setState(497);
+				setState(486);
 				match(TK_PAR_IZQ);
-				setState(498);
+				setState(487);
 				exp(0);
-				setState(499);
+				setState(488);
 				match(TK_PAR_DER);
-				setState(500);
+				setState(489);
 				match(HACER);
-				setState(501);
+				setState(490);
 				statements3();
-				setState(502);
+				setState(491);
 				match(FIN_MIENTRAS);
 				}
 				break;
@@ -4585,19 +4498,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2HacerContext(_localctx);
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(504);
+				setState(493);
 				match(HACER);
-				setState(505);
+				setState(494);
 				statements3();
-				setState(506);
+				setState(495);
 				match(MIENTRAS);
-				setState(507);
+				setState(496);
 				match(TK_PAR_IZQ);
-				setState(508);
+				setState(497);
 				exp(0);
-				setState(509);
+				setState(498);
 				match(TK_PAR_DER);
-				setState(510);
+				setState(499);
 				match(TK_PYC);
 				}
 				break;
@@ -4605,19 +4518,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt2SeleccionarContext(_localctx);
 				enterOuterAlt(_localctx, 17);
 				{
-				setState(512);
+				setState(501);
 				match(SELECCIONAR);
-				setState(513);
+				setState(502);
 				match(TK_PAR_IZQ);
-				setState(514);
+				setState(503);
 				match(ID);
-				setState(515);
+				setState(504);
 				match(TK_PAR_DER);
-				setState(516);
+				setState(505);
 				match(ENTRE);
-				setState(517);
+				setState(506);
 				cases();
-				setState(518);
+				setState(507);
 				match(FIN_SELECCIONAR);
 				}
 				break;
@@ -4821,21 +4734,21 @@ public class PsicoderParser extends Parser {
 		Stmt4Context _localctx = new Stmt4Context(_ctx, getState());
 		enterRule(_localctx, 42, RULE_stmt4);
 		try {
-			setState(564);
-			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
+			setState(553);
+			switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
 			case 1:
 				_localctx = new Stmt4FuncionContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(522);
+				setState(511);
 				match(ID);
-				setState(523);
+				setState(512);
 				match(TK_PAR_IZQ);
-				setState(524);
+				setState(513);
 				optpargs();
-				setState(525);
+				setState(514);
 				match(TK_PAR_DER);
-				setState(526);
+				setState(515);
 				match(TK_PYC);
 				}
 				break;
@@ -4843,19 +4756,19 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4TypeIDAsigComaContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(528);
+				setState(517);
 				type();
-				setState(529);
+				setState(518);
 				match(ID);
-				setState(530);
+				setState(519);
 				match(TK_ASIG);
-				setState(531);
+				setState(520);
 				exp(0);
-				setState(532);
+				setState(521);
 				match(TK_COMA);
-				setState(533);
+				setState(522);
 				optexp();
-				setState(534);
+				setState(523);
 				match(TK_PYC);
 				}
 				break;
@@ -4863,15 +4776,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4TypeIDComaContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(536);
+				setState(525);
 				type();
-				setState(537);
+				setState(526);
 				match(ID);
-				setState(538);
+				setState(527);
 				match(TK_COMA);
-				setState(539);
+				setState(528);
 				optexp();
-				setState(540);
+				setState(529);
 				match(TK_PYC);
 				}
 				break;
@@ -4879,13 +4792,13 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4IDAsigContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(542);
+				setState(531);
 				match(ID);
-				setState(543);
+				setState(532);
 				match(TK_ASIG);
-				setState(544);
+				setState(533);
 				exp(0);
-				setState(545);
+				setState(534);
 				match(TK_PYC);
 				}
 				break;
@@ -4893,15 +4806,15 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4TypeIDAsigContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(547);
+				setState(536);
 				type();
-				setState(548);
+				setState(537);
 				match(ID);
-				setState(549);
+				setState(538);
 				match(TK_ASIG);
-				setState(550);
+				setState(539);
 				exp(0);
-				setState(551);
+				setState(540);
 				match(TK_PYC);
 				}
 				break;
@@ -4909,17 +4822,17 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4IDChainAsigContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(553);
+				setState(542);
 				match(ID);
-				setState(554);
+				setState(543);
 				match(TK_PUNTO);
-				setState(555);
+				setState(544);
 				chain();
-				setState(556);
+				setState(545);
 				match(TK_ASIG);
-				setState(557);
+				setState(546);
 				exp(0);
-				setState(558);
+				setState(547);
 				match(TK_PYC);
 				}
 				break;
@@ -4927,11 +4840,11 @@ public class PsicoderParser extends Parser {
 				_localctx = new Stmt4TypeIDContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(560);
+				setState(549);
 				type();
-				setState(561);
+				setState(550);
 				match(ID);
-				setState(562);
+				setState(551);
 				match(TK_PYC);
 				}
 				break;
@@ -4950,81 +4863,71 @@ public class PsicoderParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 0:
-			return ps_sempred((PsContext)_localctx, predIndex);
 		case 18:
 			return exp_sempred((ExpContext)_localctx, predIndex);
 		}
 		return true;
 	}
-	private boolean ps_sempred(PsContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 0:
-			return precpred(_ctx, 3);
-		}
-		return true;
-	}
 	private boolean exp_sempred(ExpContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 1:
+		case 0:
 			return precpred(_ctx, 13);
-		case 2:
+		case 1:
 			return precpred(_ctx, 12);
-		case 3:
+		case 2:
 			return precpred(_ctx, 11);
-		case 4:
+		case 3:
 			return precpred(_ctx, 10);
-		case 5:
+		case 4:
 			return precpred(_ctx, 9);
-		case 6:
+		case 5:
 			return precpred(_ctx, 8);
-		case 7:
+		case 6:
 			return precpred(_ctx, 7);
-		case 8:
+		case 7:
 			return precpred(_ctx, 6);
-		case 9:
+		case 8:
 			return precpred(_ctx, 5);
-		case 10:
+		case 9:
 			return precpred(_ctx, 4);
-		case 11:
+		case 10:
 			return precpred(_ctx, 3);
-		case 12:
+		case 11:
 			return precpred(_ctx, 2);
-		case 13:
+		case 12:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3A\u0239\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3A\u022e\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\2\5\2\62"+
-		"\n\2\3\2\3\2\7\2\66\n\2\f\2\16\29\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\5\3C\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
-		"\3\4\3\4\3\4\5\4W\n\4\3\5\3\5\3\5\3\5\3\5\3\5\5\5_\n\5\3\6\3\6\5\6c\n"+
-		"\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7m\n\7\3\b\3\b\5\bq\n\b\3\t\3\t\3"+
-		"\t\3\t\3\t\5\tx\n\t\3\n\3\n\3\n\3\n\5\n~\n\n\3\13\3\13\3\13\3\13\5\13"+
-		"\u0084\n\13\3\f\3\f\3\f\3\f\5\f\u008a\n\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
+		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\2\3\2\3\2"+
+		"\5\2\64\n\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4L\n\4\3\5\3\5\3\5\3\5\3\5\3\5\5\5T\n"+
+		"\5\3\6\3\6\5\6X\n\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7b\n\7\3\b\3\b\5"+
+		"\bf\n\b\3\t\3\t\3\t\3\t\3\t\5\tm\n\t\3\n\3\n\3\n\3\n\5\ns\n\n\3\13\3\13"+
+		"\3\13\3\13\5\13y\n\13\3\f\3\f\3\f\3\f\5\f\177\n\f\3\r\3\r\3\r\3\r\3\r"+
 		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
 		"\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
 		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
 		"\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
 		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
 		"\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
-		"\3\r\3\r\5\r\u00fe\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u0107\n"+
-		"\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u0111\n\17\3\20\3\20"+
-		"\3\20\3\20\3\21\3\21\3\21\3\21\3\21\5\21\u011c\n\21\3\22\3\22\3\22\3\22"+
-		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u012b\n\22\3\23\3\23"+
-		"\3\23\3\23\5\23\u0131\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
+		"\3\r\3\r\3\r\3\r\5\r\u00f3\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16"+
+		"\u00fc\n\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u0106\n\17\3"+
+		"\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\5\21\u0111\n\21\3\22\3\22"+
+		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u0120\n\22"+
+		"\3\23\3\23\3\23\3\23\5\23\u0126\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
 		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
 		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24"+
-		"\u0165\n\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
 		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\7\24"+
-		"\u018e\n\24\f\24\16\24\u0191\13\24\3\25\3\25\5\25\u0195\n\25\3\26\3\26"+
+		"\3\24\5\24\u015a\n\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
+		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
+		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
+		"\3\24\7\24\u0183\n\24\f\24\16\24\u0186\13\24\3\25\3\25\5\25\u018a\n\25"+
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
@@ -5033,176 +4936,173 @@ public class PsicoderParser extends Parser {
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
 		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
-		"\3\26\3\26\5\26\u020b\n\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
+		"\3\26\3\26\3\26\3\26\5\26\u0200\n\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
 		"\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
 		"\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\3\27\3\27\3\27\5\27\u0237\n\27\3\27\2\4\2&\30\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \"$&(*,\2\2\u0281\2\61\3\2\2\2\4B\3\2\2\2\6V"+
-		"\3\2\2\2\b^\3\2\2\2\nb\3\2\2\2\fl\3\2\2\2\16p\3\2\2\2\20w\3\2\2\2\22}"+
-		"\3\2\2\2\24\u0083\3\2\2\2\26\u0089\3\2\2\2\30\u00fd\3\2\2\2\32\u0106\3"+
-		"\2\2\2\34\u0110\3\2\2\2\36\u0112\3\2\2\2 \u011b\3\2\2\2\"\u012a\3\2\2"+
-		"\2$\u0130\3\2\2\2&\u0164\3\2\2\2(\u0194\3\2\2\2*\u020a\3\2\2\2,\u0236"+
-		"\3\2\2\2./\b\2\1\2/\62\5\4\3\2\60\62\3\2\2\2\61.\3\2\2\2\61\60\3\2\2\2"+
-		"\62\67\3\2\2\2\63\64\f\5\2\2\64\66\5\6\4\2\65\63\3\2\2\2\669\3\2\2\2\67"+
-		"\65\3\2\2\2\678\3\2\2\28\3\3\2\2\29\67\3\2\2\2:;\5\6\4\2;<\5\2\2\2<C\3"+
-		"\2\2\2=>\7\32\2\2>?\5\22\n\2?@\7\34\2\2@C\3\2\2\2AC\3\2\2\2B:\3\2\2\2"+
-		"B=\3\2\2\2BA\3\2\2\2C\5\3\2\2\2DE\7\33\2\2EF\5\b\5\2FG\7?\2\2GH\7=\2\2"+
-		"HI\5\n\6\2IJ\7>\2\2JK\7\n\2\2KL\5\22\n\2LM\7\24\2\2MN\5&\24\2NO\7:\2\2"+
-		"OP\7\3\2\2PW\3\2\2\2QR\7\25\2\2RS\7?\2\2ST\5\26\f\2TU\7\26\2\2UW\3\2\2"+
-		"\2VD\3\2\2\2VQ\3\2\2\2W\7\3\2\2\2X_\7\"\2\2Y_\7\30\2\2Z_\7\31\2\2[_\7"+
-		"!\2\2\\_\7\35\2\2]_\7?\2\2^X\3\2\2\2^Y\3\2\2\2^Z\3\2\2\2^[\3\2\2\2^\\"+
-		"\3\2\2\2^]\3\2\2\2_\t\3\2\2\2`c\5\f\7\2ac\3\2\2\2b`\3\2\2\2ba\3\2\2\2"+
-		"c\13\3\2\2\2de\5\b\5\2ef\7?\2\2fg\7;\2\2gh\5\f\7\2hm\3\2\2\2ij\5\b\5\2"+
-		"jk\7?\2\2km\3\2\2\2ld\3\2\2\2li\3\2\2\2m\r\3\2\2\2nq\5\20\t\2oq\3\2\2"+
-		"\2pn\3\2\2\2po\3\2\2\2q\17\3\2\2\2rs\5&\24\2st\7;\2\2tu\5\f\7\2ux\3\2"+
-		"\2\2vx\5&\24\2wr\3\2\2\2wv\3\2\2\2x\21\3\2\2\2yz\5\30\r\2z{\5\22\n\2{"+
-		"~\3\2\2\2|~\3\2\2\2}y\3\2\2\2}|\3\2\2\2~\23\3\2\2\2\177\u0080\5*\26\2"+
-		"\u0080\u0081\5\24\13\2\u0081\u0084\3\2\2\2\u0082\u0084\3\2\2\2\u0083\177"+
-		"\3\2\2\2\u0083\u0082\3\2\2\2\u0084\25\3\2\2\2\u0085\u0086\5,\27\2\u0086"+
-		"\u0087\5\26\f\2\u0087\u008a\3\2\2\2\u0088\u008a\3\2\2\2\u0089\u0085\3"+
-		"\2\2\2\u0089\u0088\3\2\2\2\u008a\27\3\2\2\2\u008b\u008c\7?\2\2\u008c\u008d"+
-		"\7=\2\2\u008d\u008e\5\16\b\2\u008e\u008f\7>\2\2\u008f\u0090\7:\2\2\u0090"+
-		"\u00fe\3\2\2\2\u0091\u0092\5\b\5\2\u0092\u0093\7?\2\2\u0093\u0094\7-\2"+
-		"\2\u0094\u0095\5&\24\2\u0095\u0096\7;\2\2\u0096\u0097\5\"\22\2\u0097\u0098"+
-		"\7:\2\2\u0098\u00fe\3\2\2\2\u0099\u009a\5\b\5\2\u009a\u009b\7?\2\2\u009b"+
-		"\u009c\7;\2\2\u009c\u009d\5\"\22\2\u009d\u009e\7:\2\2\u009e\u00fe\3\2"+
-		"\2\2\u009f\u00a0\7?\2\2\u00a0\u00a1\7-\2\2\u00a1\u00a2\5&\24\2\u00a2\u00a3"+
-		"\7:\2\2\u00a3\u00fe\3\2\2\2\u00a4\u00a5\5\b\5\2\u00a5\u00a6\7?\2\2\u00a6"+
-		"\u00a7\7-\2\2\u00a7\u00a8\5&\24\2\u00a8\u00a9\7:\2\2\u00a9\u00fe\3\2\2"+
-		"\2\u00aa\u00ab\7?\2\2\u00ab\u00ac\7<\2\2\u00ac\u00ad\5$\23\2\u00ad\u00ae"+
-		"\7-\2\2\u00ae\u00af\5&\24\2\u00af\u00b0\7:\2\2\u00b0\u00fe\3\2\2\2\u00b1"+
-		"\u00b2\5\b\5\2\u00b2\u00b3\7?\2\2\u00b3\u00b4\7:\2\2\u00b4\u00fe\3\2\2"+
-		"\2\u00b5\u00b6\7\6\2\2\u00b6\u00b7\7=\2\2\u00b7\u00b8\5&\24\2\u00b8\u00b9"+
-		"\7>\2\2\u00b9\u00ba\7\7\2\2\u00ba\u00bb\5\22\n\2\u00bb\u00bc\7\b\2\2\u00bc"+
-		"\u00fe\3\2\2\2\u00bd\u00be\7\6\2\2\u00be\u00bf\7=\2\2\u00bf\u00c0\5&\24"+
-		"\2\u00c0\u00c1\7>\2\2\u00c1\u00c2\7\7\2\2\u00c2\u00c3\5\22\n\2\u00c3\u00c4"+
-		"\7\5\2\2\u00c4\u00c5\5\22\n\2\u00c5\u00c6\7\b\2\2\u00c6\u00fe\3\2\2\2"+
-		"\u00c7\u00c8\7\4\2\2\u00c8\u00c9\7=\2\2\u00c9\u00ca\7?\2\2\u00ca\u00cb"+
-		"\7>\2\2\u00cb\u00fe\7:\2\2\u00cc\u00cd\7\4\2\2\u00cd\u00ce\7=\2\2\u00ce"+
-		"\u00cf\7?\2\2\u00cf\u00d0\7<\2\2\u00d0\u00d1\5$\23\2\u00d1\u00d2\7>\2"+
-		"\2\u00d2\u00d3\7:\2\2\u00d3\u00fe\3\2\2\2\u00d4\u00d5\7\27\2\2\u00d5\u00d6"+
-		"\7=\2\2\u00d6\u00d7\5 \21\2\u00d7\u00d8\7>\2\2\u00d8\u00d9\7:\2\2\u00d9"+
-		"\u00fe\3\2\2\2\u00da\u00db\7\f\2\2\u00db\u00dc\7=\2\2\u00dc\u00dd\5\30"+
-		"\r\2\u00dd\u00de\5&\24\2\u00de\u00df\7:\2\2\u00df\u00e0\5&\24\2\u00e0"+
-		"\u00e1\7>\2\2\u00e1\u00e2\7\n\2\2\u00e2\u00e3\5\24\13\2\u00e3\u00e4\7"+
-		"\r\2\2\u00e4\u00fe\3\2\2\2\u00e5\u00e6\7\t\2\2\u00e6\u00e7\7=\2\2\u00e7"+
-		"\u00e8\5&\24\2\u00e8\u00e9\7>\2\2\u00e9\u00ea\7\n\2\2\u00ea\u00eb\5\24"+
-		"\13\2\u00eb\u00ec\7\13\2\2\u00ec\u00fe\3\2\2\2\u00ed\u00ee\7\n\2\2\u00ee"+
-		"\u00ef\5\24\13\2\u00ef\u00f0\7\t\2\2\u00f0\u00f1\7=\2\2\u00f1\u00f2\5"+
-		"&\24\2\u00f2\u00f3\7>\2\2\u00f3\u00f4\7:\2\2\u00f4\u00fe\3\2\2\2\u00f5"+
-		"\u00f6\7\16\2\2\u00f6\u00f7\7=\2\2\u00f7\u00f8\7?\2\2\u00f8\u00f9\7>\2"+
-		"\2\u00f9\u00fa\7\17\2\2\u00fa\u00fb\5\32\16\2\u00fb\u00fc\7\23\2\2\u00fc"+
-		"\u00fe\3\2\2\2\u00fd\u008b\3\2\2\2\u00fd\u0091\3\2\2\2\u00fd\u0099\3\2"+
-		"\2\2\u00fd\u009f\3\2\2\2\u00fd\u00a4\3\2\2\2\u00fd\u00aa\3\2\2\2\u00fd"+
-		"\u00b1\3\2\2\2\u00fd\u00b5\3\2\2\2\u00fd\u00bd\3\2\2\2\u00fd\u00c7\3\2"+
-		"\2\2\u00fd\u00cc\3\2\2\2\u00fd\u00d4\3\2\2\2\u00fd\u00da\3\2\2\2\u00fd"+
-		"\u00e5\3\2\2\2\u00fd\u00ed\3\2\2\2\u00fd\u00f5\3\2\2\2\u00fe\31\3\2\2"+
-		"\2\u00ff\u0100\7\20\2\2\u0100\u0101\5&\24\2\u0101\u0102\7\67\2\2\u0102"+
-		"\u0103\5\24\13\2\u0103\u0104\5\34\17\2\u0104\u0107\3\2\2\2\u0105\u0107"+
-		"\5\36\20\2\u0106\u00ff\3\2\2\2\u0106\u0105\3\2\2\2\u0107\33\3\2\2\2\u0108"+
-		"\u0109\7\20\2\2\u0109\u010a\5&\24\2\u010a\u010b\7\67\2\2\u010b\u010c\5"+
-		"\24\13\2\u010c\u010d\5\34\17\2\u010d\u0111\3\2\2\2\u010e\u0111\3\2\2\2"+
-		"\u010f\u0111\5\36\20\2\u0110\u0108\3\2\2\2\u0110\u010e\3\2\2\2\u0110\u010f"+
-		"\3\2\2\2\u0111\35\3\2\2\2\u0112\u0113\7\22\2\2\u0113\u0114\7\67\2\2\u0114"+
-		"\u0115\5\24\13\2\u0115\37\3\2\2\2\u0116\u0117\5&\24\2\u0117\u0118\7;\2"+
-		"\2\u0118\u0119\5 \21\2\u0119\u011c\3\2\2\2\u011a\u011c\5&\24\2\u011b\u0116"+
-		"\3\2\2\2\u011b\u011a\3\2\2\2\u011c!\3\2\2\2\u011d\u011e\7?\2\2\u011e\u011f"+
-		"\7;\2\2\u011f\u012b\5\"\22\2\u0120\u0121\7?\2\2\u0121\u0122\7-\2\2\u0122"+
-		"\u0123\5&\24\2\u0123\u0124\7;\2\2\u0124\u0125\5\"\22\2\u0125\u012b\3\2"+
-		"\2\2\u0126\u012b\7?\2\2\u0127\u0128\7?\2\2\u0128\u0129\7-\2\2\u0129\u012b"+
-		"\5&\24\2\u012a\u011d\3\2\2\2\u012a\u0120\3\2\2\2\u012a\u0126\3\2\2\2\u012a"+
-		"\u0127\3\2\2\2\u012b#\3\2\2\2\u012c\u012d\7?\2\2\u012d\u012e\7<\2\2\u012e"+
-		"\u0131\5$\23\2\u012f\u0131\7?\2\2\u0130\u012c\3\2\2\2\u0130\u012f\3\2"+
-		"\2\2\u0131%\3\2\2\2\u0132\u0133\b\24\1\2\u0133\u0165\7\36\2\2\u0134\u0165"+
-		"\7?\2\2\u0135\u0136\7?\2\2\u0136\u0137\7<\2\2\u0137\u0165\5$\23\2\u0138"+
-		"\u0165\7#\2\2\u0139\u0165\7@\2\2\u013a\u0165\7A\2\2\u013b\u0165\7\37\2"+
-		"\2\u013c\u0165\7 \2\2\u013d\u013e\7)\2\2\u013e\u0165\7@\2\2\u013f\u0140"+
-		"\7)\2\2\u0140\u0165\7#\2\2\u0141\u0142\7)\2\2\u0142\u0165\7?\2\2\u0143"+
-		"\u0144\7)\2\2\u0144\u0145\7?\2\2\u0145\u0146\7<\2\2\u0146\u0165\5$\23"+
-		"\2\u0147\u0148\7)\2\2\u0148\u0149\7=\2\2\u0149\u014a\5&\24\2\u014a\u014b"+
-		"\7>\2\2\u014b\u0165\3\2\2\2\u014c\u014d\7\66\2\2\u014d\u0165\7?\2\2\u014e"+
-		"\u014f\7\66\2\2\u014f\u0150\7?\2\2\u0150\u0151\7<\2\2\u0151\u0165\5$\23"+
-		"\2\u0152\u0153\7\66\2\2\u0153\u0165\7\37\2\2\u0154\u0155\7\66\2\2\u0155"+
-		"\u0165\7 \2\2\u0156\u0157\7\66\2\2\u0157\u0158\7=\2\2\u0158\u0159\5&\24"+
-		"\2\u0159\u015a\7>\2\2\u015a\u0165\3\2\2\2\u015b\u015c\7=\2\2\u015c\u015d"+
-		"\5&\24\2\u015d\u015e\7>\2\2\u015e\u0165\3\2\2\2\u015f\u0160\7?\2\2\u0160"+
-		"\u0161\7=\2\2\u0161\u0162\5(\25\2\u0162\u0163\7>\2\2\u0163\u0165\3\2\2"+
-		"\2\u0164\u0132\3\2\2\2\u0164\u0134\3\2\2\2\u0164\u0135\3\2\2\2\u0164\u0138"+
-		"\3\2\2\2\u0164\u0139\3\2\2\2\u0164\u013a\3\2\2\2\u0164\u013b\3\2\2\2\u0164"+
-		"\u013c\3\2\2\2\u0164\u013d\3\2\2\2\u0164\u013f\3\2\2\2\u0164\u0141\3\2"+
-		"\2\2\u0164\u0143\3\2\2\2\u0164\u0147\3\2\2\2\u0164\u014c\3\2\2\2\u0164"+
-		"\u014e\3\2\2\2\u0164\u0152\3\2\2\2\u0164\u0154\3\2\2\2\u0164\u0156\3\2"+
-		"\2\2\u0164\u015b\3\2\2\2\u0164\u015f\3\2\2\2\u0165\u018f\3\2\2\2\u0166"+
-		"\u0167\f\17\2\2\u0167\u0168\7\64\2\2\u0168\u018e\5&\24\20\u0169\u016a"+
-		"\f\16\2\2\u016a\u016b\7\63\2\2\u016b\u018e\5&\24\17\u016c\u016d\f\r\2"+
-		"\2\u016d\u016e\7\62\2\2\u016e\u018e\5&\24\16\u016f\u0170\f\f\2\2\u0170"+
-		"\u0171\7.\2\2\u0171\u018e\5&\24\r\u0172\u0173\f\13\2\2\u0173\u0174\7/"+
-		"\2\2\u0174\u018e\5&\24\f\u0175\u0176\f\n\2\2\u0176\u0177\7\60\2\2\u0177"+
-		"\u018e\5&\24\13\u0178\u0179\f\t\2\2\u0179\u017a\7\61\2\2\u017a\u018e\5"+
-		"&\24\n\u017b\u017c\f\b\2\2\u017c\u017d\7\65\2\2\u017d\u018e\5&\24\t\u017e"+
-		"\u017f\f\7\2\2\u017f\u0180\7(\2\2\u0180\u018e\5&\24\b\u0181\u0182\f\6"+
-		"\2\2\u0182\u0183\7)\2\2\u0183\u018e\5&\24\7\u0184\u0185\f\5\2\2\u0185"+
-		"\u0186\7*\2\2\u0186\u018e\5&\24\6\u0187\u0188\f\4\2\2\u0188\u0189\7+\2"+
-		"\2\u0189\u018e\5&\24\5\u018a\u018b\f\3\2\2\u018b\u018c\7,\2\2\u018c\u018e"+
-		"\5&\24\4\u018d\u0166\3\2\2\2\u018d\u0169\3\2\2\2\u018d\u016c\3\2\2\2\u018d"+
-		"\u016f\3\2\2\2\u018d\u0172\3\2\2\2\u018d\u0175\3\2\2\2\u018d\u0178\3\2"+
-		"\2\2\u018d\u017b\3\2\2\2\u018d\u017e\3\2\2\2\u018d\u0181\3\2\2\2\u018d"+
-		"\u0184\3\2\2\2\u018d\u0187\3\2\2\2\u018d\u018a\3\2\2\2\u018e\u0191\3\2"+
-		"\2\2\u018f\u018d\3\2\2\2\u018f\u0190\3\2\2\2\u0190\'\3\2\2\2\u0191\u018f"+
-		"\3\2\2\2\u0192\u0195\5\20\t\2\u0193\u0195\3\2\2\2\u0194\u0192\3\2\2\2"+
-		"\u0194\u0193\3\2\2\2\u0195)\3\2\2\2\u0196\u0197\7\21\2\2\u0197\u020b\7"+
-		":\2\2\u0198\u0199\7?\2\2\u0199\u019a\7=\2\2\u019a\u019b\5\16\b\2\u019b"+
-		"\u019c\7>\2\2\u019c\u019d\7:\2\2\u019d\u020b\3\2\2\2\u019e\u019f\5\b\5"+
-		"\2\u019f\u01a0\7?\2\2\u01a0\u01a1\7-\2\2\u01a1\u01a2\5&\24\2\u01a2\u01a3"+
-		"\7;\2\2\u01a3\u01a4\5\"\22\2\u01a4\u01a5\7:\2\2\u01a5\u020b\3\2\2\2\u01a6"+
-		"\u01a7\5\b\5\2\u01a7\u01a8\7?\2\2\u01a8\u01a9\7;\2\2\u01a9\u01aa\5\"\22"+
-		"\2\u01aa\u01ab\7:\2\2\u01ab\u020b\3\2\2\2\u01ac\u01ad\7?\2\2\u01ad\u01ae"+
-		"\7-\2\2\u01ae\u01af\5&\24\2\u01af\u01b0\7:\2\2\u01b0\u020b\3\2\2\2\u01b1"+
-		"\u01b2\5\b\5\2\u01b2\u01b3\7?\2\2\u01b3\u01b4\7-\2\2\u01b4\u01b5\5&\24"+
-		"\2\u01b5\u01b6\7:\2\2\u01b6\u020b\3\2\2\2\u01b7\u01b8\7?\2\2\u01b8\u01b9"+
-		"\7<\2\2\u01b9\u01ba\5$\23\2\u01ba\u01bb\7-\2\2\u01bb\u01bc\5&\24\2\u01bc"+
-		"\u01bd\7:\2\2\u01bd\u020b\3\2\2\2\u01be\u01bf\5\b\5\2\u01bf\u01c0\7?\2"+
-		"\2\u01c0\u01c1\7:\2\2\u01c1\u020b\3\2\2\2\u01c2\u01c3\7\6\2\2\u01c3\u01c4"+
-		"\7=\2\2\u01c4\u01c5\5&\24\2\u01c5\u01c6\7>\2\2\u01c6\u01c7\7\7\2\2\u01c7"+
-		"\u01c8\5\24\13\2\u01c8\u01c9\7\b\2\2\u01c9\u020b\3\2\2\2\u01ca\u01cb\7"+
-		"\6\2\2\u01cb\u01cc\7=\2\2\u01cc\u01cd\5&\24\2\u01cd\u01ce\7>\2\2\u01ce"+
-		"\u01cf\7\7\2\2\u01cf\u01d0\5\24\13\2\u01d0\u01d1\7\5\2\2\u01d1\u01d2\5"+
-		"\24\13\2\u01d2\u01d3\7\b\2\2\u01d3\u020b\3\2\2\2\u01d4\u01d5\7\4\2\2\u01d5"+
-		"\u01d6\7=\2\2\u01d6\u01d7\7?\2\2\u01d7\u01d8\7<\2\2\u01d8\u01d9\5$\23"+
-		"\2\u01d9\u01da\7>\2\2\u01da\u01db\7:\2\2\u01db\u020b\3\2\2\2\u01dc\u01dd"+
-		"\7\4\2\2\u01dd\u01de\7=\2\2\u01de\u01df\7?\2\2\u01df\u01e0\7>\2\2\u01e0"+
-		"\u020b\7:\2\2\u01e1\u01e2\7\27\2\2\u01e2\u01e3\7=\2\2\u01e3\u01e4\5 \21"+
-		"\2\u01e4\u01e5\7>\2\2\u01e5\u01e6\7:\2\2\u01e6\u020b\3\2\2\2\u01e7\u01e8"+
-		"\7\f\2\2\u01e8\u01e9\7=\2\2\u01e9\u01ea\5\30\r\2\u01ea\u01eb\5&\24\2\u01eb"+
-		"\u01ec\7:\2\2\u01ec\u01ed\5&\24\2\u01ed\u01ee\7>\2\2\u01ee\u01ef\7\n\2"+
-		"\2\u01ef\u01f0\5\24\13\2\u01f0\u01f1\7\r\2\2\u01f1\u020b\3\2\2\2\u01f2"+
-		"\u01f3\7\t\2\2\u01f3\u01f4\7=\2\2\u01f4\u01f5\5&\24\2\u01f5\u01f6\7>\2"+
-		"\2\u01f6\u01f7\7\n\2\2\u01f7\u01f8\5\24\13\2\u01f8\u01f9\7\13\2\2\u01f9"+
-		"\u020b\3\2\2\2\u01fa\u01fb\7\n\2\2\u01fb\u01fc\5\24\13\2\u01fc\u01fd\7"+
-		"\t\2\2\u01fd\u01fe\7=\2\2\u01fe\u01ff\5&\24\2\u01ff\u0200\7>\2\2\u0200"+
-		"\u0201\7:\2\2\u0201\u020b\3\2\2\2\u0202\u0203\7\16\2\2\u0203\u0204\7="+
-		"\2\2\u0204\u0205\7?\2\2\u0205\u0206\7>\2\2\u0206\u0207\7\17\2\2\u0207"+
-		"\u0208\5\32\16\2\u0208\u0209\7\23\2\2\u0209\u020b\3\2\2\2\u020a\u0196"+
-		"\3\2\2\2\u020a\u0198\3\2\2\2\u020a\u019e\3\2\2\2\u020a\u01a6\3\2\2\2\u020a"+
-		"\u01ac\3\2\2\2\u020a\u01b1\3\2\2\2\u020a\u01b7\3\2\2\2\u020a\u01be\3\2"+
-		"\2\2\u020a\u01c2\3\2\2\2\u020a\u01ca\3\2\2\2\u020a\u01d4\3\2\2\2\u020a"+
-		"\u01dc\3\2\2\2\u020a\u01e1\3\2\2\2\u020a\u01e7\3\2\2\2\u020a\u01f2\3\2"+
-		"\2\2\u020a\u01fa\3\2\2\2\u020a\u0202\3\2\2\2\u020b+\3\2\2\2\u020c\u020d"+
-		"\7?\2\2\u020d\u020e\7=\2\2\u020e\u020f\5\16\b\2\u020f\u0210\7>\2\2\u0210"+
-		"\u0211\7:\2\2\u0211\u0237\3\2\2\2\u0212\u0213\5\b\5\2\u0213\u0214\7?\2"+
-		"\2\u0214\u0215\7-\2\2\u0215\u0216\5&\24\2\u0216\u0217\7;\2\2\u0217\u0218"+
-		"\5\"\22\2\u0218\u0219\7:\2\2\u0219\u0237\3\2\2\2\u021a\u021b\5\b\5\2\u021b"+
-		"\u021c\7?\2\2\u021c\u021d\7;\2\2\u021d\u021e\5\"\22\2\u021e\u021f\7:\2"+
-		"\2\u021f\u0237\3\2\2\2\u0220\u0221\7?\2\2\u0221\u0222\7-\2\2\u0222\u0223"+
-		"\5&\24\2\u0223\u0224\7:\2\2\u0224\u0237\3\2\2\2\u0225\u0226\5\b\5\2\u0226"+
-		"\u0227\7?\2\2\u0227\u0228\7-\2\2\u0228\u0229\5&\24\2\u0229\u022a\7:\2"+
-		"\2\u022a\u0237\3\2\2\2\u022b\u022c\7?\2\2\u022c\u022d\7<\2\2\u022d\u022e"+
-		"\5$\23\2\u022e\u022f\7-\2\2\u022f\u0230\5&\24\2\u0230\u0231\7:\2\2\u0231"+
-		"\u0237\3\2\2\2\u0232\u0233\5\b\5\2\u0233\u0234\7?\2\2\u0234\u0235\7:\2"+
-		"\2\u0235\u0237\3\2\2\2\u0236\u020c\3\2\2\2\u0236\u0212\3\2\2\2\u0236\u021a"+
-		"\3\2\2\2\u0236\u0220\3\2\2\2\u0236\u0225\3\2\2\2\u0236\u022b\3\2\2\2\u0236"+
-		"\u0232\3\2\2\2\u0237-\3\2\2\2\32\61\67BV^blpw}\u0083\u0089\u00fd\u0106"+
-		"\u0110\u011b\u012a\u0130\u0164\u018d\u018f\u0194\u020a\u0236";
+		"\3\27\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u022c\n\27\3\27\2\3&\30\2\4\6"+
+		"\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,\2\2\u0274\2\63\3\2\2\2\4\65"+
+		"\3\2\2\2\6K\3\2\2\2\bS\3\2\2\2\nW\3\2\2\2\fa\3\2\2\2\16e\3\2\2\2\20l\3"+
+		"\2\2\2\22r\3\2\2\2\24x\3\2\2\2\26~\3\2\2\2\30\u00f2\3\2\2\2\32\u00fb\3"+
+		"\2\2\2\34\u0105\3\2\2\2\36\u0107\3\2\2\2 \u0110\3\2\2\2\"\u011f\3\2\2"+
+		"\2$\u0125\3\2\2\2&\u0159\3\2\2\2(\u0189\3\2\2\2*\u01ff\3\2\2\2,\u022b"+
+		"\3\2\2\2./\5\6\4\2/\60\5\2\2\2\60\64\3\2\2\2\61\64\5\4\3\2\62\64\3\2\2"+
+		"\2\63.\3\2\2\2\63\61\3\2\2\2\63\62\3\2\2\2\64\3\3\2\2\2\65\66\7\32\2\2"+
+		"\66\67\5\22\n\2\678\7\34\2\28\5\3\2\2\29:\7\33\2\2:;\5\b\5\2;<\7?\2\2"+
+		"<=\7=\2\2=>\5\n\6\2>?\7>\2\2?@\7\n\2\2@A\5\22\n\2AB\7\24\2\2BC\5&\24\2"+
+		"CD\7:\2\2DE\7\3\2\2EL\3\2\2\2FG\7\25\2\2GH\7?\2\2HI\5\26\f\2IJ\7\26\2"+
+		"\2JL\3\2\2\2K9\3\2\2\2KF\3\2\2\2L\7\3\2\2\2MT\7\"\2\2NT\7\30\2\2OT\7\31"+
+		"\2\2PT\7!\2\2QT\7\35\2\2RT\7?\2\2SM\3\2\2\2SN\3\2\2\2SO\3\2\2\2SP\3\2"+
+		"\2\2SQ\3\2\2\2SR\3\2\2\2T\t\3\2\2\2UX\5\f\7\2VX\3\2\2\2WU\3\2\2\2WV\3"+
+		"\2\2\2X\13\3\2\2\2YZ\5\b\5\2Z[\7?\2\2[\\\7;\2\2\\]\5\f\7\2]b\3\2\2\2^"+
+		"_\5\b\5\2_`\7?\2\2`b\3\2\2\2aY\3\2\2\2a^\3\2\2\2b\r\3\2\2\2cf\5\20\t\2"+
+		"df\3\2\2\2ec\3\2\2\2ed\3\2\2\2f\17\3\2\2\2gh\5&\24\2hi\7;\2\2ij\5\f\7"+
+		"\2jm\3\2\2\2km\5&\24\2lg\3\2\2\2lk\3\2\2\2m\21\3\2\2\2no\5\30\r\2op\5"+
+		"\22\n\2ps\3\2\2\2qs\3\2\2\2rn\3\2\2\2rq\3\2\2\2s\23\3\2\2\2tu\5*\26\2"+
+		"uv\5\24\13\2vy\3\2\2\2wy\3\2\2\2xt\3\2\2\2xw\3\2\2\2y\25\3\2\2\2z{\5,"+
+		"\27\2{|\5\26\f\2|\177\3\2\2\2}\177\3\2\2\2~z\3\2\2\2~}\3\2\2\2\177\27"+
+		"\3\2\2\2\u0080\u0081\7?\2\2\u0081\u0082\7=\2\2\u0082\u0083\5\16\b\2\u0083"+
+		"\u0084\7>\2\2\u0084\u0085\7:\2\2\u0085\u00f3\3\2\2\2\u0086\u0087\5\b\5"+
+		"\2\u0087\u0088\7?\2\2\u0088\u0089\7-\2\2\u0089\u008a\5&\24\2\u008a\u008b"+
+		"\7;\2\2\u008b\u008c\5\"\22\2\u008c\u008d\7:\2\2\u008d\u00f3\3\2\2\2\u008e"+
+		"\u008f\5\b\5\2\u008f\u0090\7?\2\2\u0090\u0091\7;\2\2\u0091\u0092\5\"\22"+
+		"\2\u0092\u0093\7:\2\2\u0093\u00f3\3\2\2\2\u0094\u0095\7?\2\2\u0095\u0096"+
+		"\7-\2\2\u0096\u0097\5&\24\2\u0097\u0098\7:\2\2\u0098\u00f3\3\2\2\2\u0099"+
+		"\u009a\5\b\5\2\u009a\u009b\7?\2\2\u009b\u009c\7-\2\2\u009c\u009d\5&\24"+
+		"\2\u009d\u009e\7:\2\2\u009e\u00f3\3\2\2\2\u009f\u00a0\7?\2\2\u00a0\u00a1"+
+		"\7<\2\2\u00a1\u00a2\5$\23\2\u00a2\u00a3\7-\2\2\u00a3\u00a4\5&\24\2\u00a4"+
+		"\u00a5\7:\2\2\u00a5\u00f3\3\2\2\2\u00a6\u00a7\5\b\5\2\u00a7\u00a8\7?\2"+
+		"\2\u00a8\u00a9\7:\2\2\u00a9\u00f3\3\2\2\2\u00aa\u00ab\7\6\2\2\u00ab\u00ac"+
+		"\7=\2\2\u00ac\u00ad\5&\24\2\u00ad\u00ae\7>\2\2\u00ae\u00af\7\7\2\2\u00af"+
+		"\u00b0\5\22\n\2\u00b0\u00b1\7\b\2\2\u00b1\u00f3\3\2\2\2\u00b2\u00b3\7"+
+		"\6\2\2\u00b3\u00b4\7=\2\2\u00b4\u00b5\5&\24\2\u00b5\u00b6\7>\2\2\u00b6"+
+		"\u00b7\7\7\2\2\u00b7\u00b8\5\22\n\2\u00b8\u00b9\7\5\2\2\u00b9\u00ba\5"+
+		"\22\n\2\u00ba\u00bb\7\b\2\2\u00bb\u00f3\3\2\2\2\u00bc\u00bd\7\4\2\2\u00bd"+
+		"\u00be\7=\2\2\u00be\u00bf\7?\2\2\u00bf\u00c0\7>\2\2\u00c0\u00f3\7:\2\2"+
+		"\u00c1\u00c2\7\4\2\2\u00c2\u00c3\7=\2\2\u00c3\u00c4\7?\2\2\u00c4\u00c5"+
+		"\7<\2\2\u00c5\u00c6\5$\23\2\u00c6\u00c7\7>\2\2\u00c7\u00c8\7:\2\2\u00c8"+
+		"\u00f3\3\2\2\2\u00c9\u00ca\7\27\2\2\u00ca\u00cb\7=\2\2\u00cb\u00cc\5 "+
+		"\21\2\u00cc\u00cd\7>\2\2\u00cd\u00ce\7:\2\2\u00ce\u00f3\3\2\2\2\u00cf"+
+		"\u00d0\7\f\2\2\u00d0\u00d1\7=\2\2\u00d1\u00d2\5\30\r\2\u00d2\u00d3\5&"+
+		"\24\2\u00d3\u00d4\7:\2\2\u00d4\u00d5\5&\24\2\u00d5\u00d6\7>\2\2\u00d6"+
+		"\u00d7\7\n\2\2\u00d7\u00d8\5\24\13\2\u00d8\u00d9\7\r\2\2\u00d9\u00f3\3"+
+		"\2\2\2\u00da\u00db\7\t\2\2\u00db\u00dc\7=\2\2\u00dc\u00dd\5&\24\2\u00dd"+
+		"\u00de\7>\2\2\u00de\u00df\7\n\2\2\u00df\u00e0\5\24\13\2\u00e0\u00e1\7"+
+		"\13\2\2\u00e1\u00f3\3\2\2\2\u00e2\u00e3\7\n\2\2\u00e3\u00e4\5\24\13\2"+
+		"\u00e4\u00e5\7\t\2\2\u00e5\u00e6\7=\2\2\u00e6\u00e7\5&\24\2\u00e7\u00e8"+
+		"\7>\2\2\u00e8\u00e9\7:\2\2\u00e9\u00f3\3\2\2\2\u00ea\u00eb\7\16\2\2\u00eb"+
+		"\u00ec\7=\2\2\u00ec\u00ed\7?\2\2\u00ed\u00ee\7>\2\2\u00ee\u00ef\7\17\2"+
+		"\2\u00ef\u00f0\5\32\16\2\u00f0\u00f1\7\23\2\2\u00f1\u00f3\3\2\2\2\u00f2"+
+		"\u0080\3\2\2\2\u00f2\u0086\3\2\2\2\u00f2\u008e\3\2\2\2\u00f2\u0094\3\2"+
+		"\2\2\u00f2\u0099\3\2\2\2\u00f2\u009f\3\2\2\2\u00f2\u00a6\3\2\2\2\u00f2"+
+		"\u00aa\3\2\2\2\u00f2\u00b2\3\2\2\2\u00f2\u00bc\3\2\2\2\u00f2\u00c1\3\2"+
+		"\2\2\u00f2\u00c9\3\2\2\2\u00f2\u00cf\3\2\2\2\u00f2\u00da\3\2\2\2\u00f2"+
+		"\u00e2\3\2\2\2\u00f2\u00ea\3\2\2\2\u00f3\31\3\2\2\2\u00f4\u00f5\7\20\2"+
+		"\2\u00f5\u00f6\5&\24\2\u00f6\u00f7\7\67\2\2\u00f7\u00f8\5\24\13\2\u00f8"+
+		"\u00f9\5\34\17\2\u00f9\u00fc\3\2\2\2\u00fa\u00fc\5\36\20\2\u00fb\u00f4"+
+		"\3\2\2\2\u00fb\u00fa\3\2\2\2\u00fc\33\3\2\2\2\u00fd\u00fe\7\20\2\2\u00fe"+
+		"\u00ff\5&\24\2\u00ff\u0100\7\67\2\2\u0100\u0101\5\24\13\2\u0101\u0102"+
+		"\5\34\17\2\u0102\u0106\3\2\2\2\u0103\u0106\3\2\2\2\u0104\u0106\5\36\20"+
+		"\2\u0105\u00fd\3\2\2\2\u0105\u0103\3\2\2\2\u0105\u0104\3\2\2\2\u0106\35"+
+		"\3\2\2\2\u0107\u0108\7\22\2\2\u0108\u0109\7\67\2\2\u0109\u010a\5\24\13"+
+		"\2\u010a\37\3\2\2\2\u010b\u010c\5&\24\2\u010c\u010d\7;\2\2\u010d\u010e"+
+		"\5 \21\2\u010e\u0111\3\2\2\2\u010f\u0111\5&\24\2\u0110\u010b\3\2\2\2\u0110"+
+		"\u010f\3\2\2\2\u0111!\3\2\2\2\u0112\u0113\7?\2\2\u0113\u0114\7;\2\2\u0114"+
+		"\u0120\5\"\22\2\u0115\u0116\7?\2\2\u0116\u0117\7-\2\2\u0117\u0118\5&\24"+
+		"\2\u0118\u0119\7;\2\2\u0119\u011a\5\"\22\2\u011a\u0120\3\2\2\2\u011b\u0120"+
+		"\7?\2\2\u011c\u011d\7?\2\2\u011d\u011e\7-\2\2\u011e\u0120\5&\24\2\u011f"+
+		"\u0112\3\2\2\2\u011f\u0115\3\2\2\2\u011f\u011b\3\2\2\2\u011f\u011c\3\2"+
+		"\2\2\u0120#\3\2\2\2\u0121\u0122\7?\2\2\u0122\u0123\7<\2\2\u0123\u0126"+
+		"\5$\23\2\u0124\u0126\7?\2\2\u0125\u0121\3\2\2\2\u0125\u0124\3\2\2\2\u0126"+
+		"%\3\2\2\2\u0127\u0128\b\24\1\2\u0128\u015a\7\36\2\2\u0129\u015a\7?\2\2"+
+		"\u012a\u012b\7?\2\2\u012b\u012c\7<\2\2\u012c\u015a\5$\23\2\u012d\u015a"+
+		"\7#\2\2\u012e\u015a\7@\2\2\u012f\u015a\7A\2\2\u0130\u015a\7\37\2\2\u0131"+
+		"\u015a\7 \2\2\u0132\u0133\7)\2\2\u0133\u015a\7@\2\2\u0134\u0135\7)\2\2"+
+		"\u0135\u015a\7#\2\2\u0136\u0137\7)\2\2\u0137\u015a\7?\2\2\u0138\u0139"+
+		"\7)\2\2\u0139\u013a\7?\2\2\u013a\u013b\7<\2\2\u013b\u015a\5$\23\2\u013c"+
+		"\u013d\7)\2\2\u013d\u013e\7=\2\2\u013e\u013f\5&\24\2\u013f\u0140\7>\2"+
+		"\2\u0140\u015a\3\2\2\2\u0141\u0142\7\66\2\2\u0142\u015a\7?\2\2\u0143\u0144"+
+		"\7\66\2\2\u0144\u0145\7?\2\2\u0145\u0146\7<\2\2\u0146\u015a\5$\23\2\u0147"+
+		"\u0148\7\66\2\2\u0148\u015a\7\37\2\2\u0149\u014a\7\66\2\2\u014a\u015a"+
+		"\7 \2\2\u014b\u014c\7\66\2\2\u014c\u014d\7=\2\2\u014d\u014e\5&\24\2\u014e"+
+		"\u014f\7>\2\2\u014f\u015a\3\2\2\2\u0150\u0151\7=\2\2\u0151\u0152\5&\24"+
+		"\2\u0152\u0153\7>\2\2\u0153\u015a\3\2\2\2\u0154\u0155\7?\2\2\u0155\u0156"+
+		"\7=\2\2\u0156\u0157\5(\25\2\u0157\u0158\7>\2\2\u0158\u015a\3\2\2\2\u0159"+
+		"\u0127\3\2\2\2\u0159\u0129\3\2\2\2\u0159\u012a\3\2\2\2\u0159\u012d\3\2"+
+		"\2\2\u0159\u012e\3\2\2\2\u0159\u012f\3\2\2\2\u0159\u0130\3\2\2\2\u0159"+
+		"\u0131\3\2\2\2\u0159\u0132\3\2\2\2\u0159\u0134\3\2\2\2\u0159\u0136\3\2"+
+		"\2\2\u0159\u0138\3\2\2\2\u0159\u013c\3\2\2\2\u0159\u0141\3\2\2\2\u0159"+
+		"\u0143\3\2\2\2\u0159\u0147\3\2\2\2\u0159\u0149\3\2\2\2\u0159\u014b\3\2"+
+		"\2\2\u0159\u0150\3\2\2\2\u0159\u0154\3\2\2\2\u015a\u0184\3\2\2\2\u015b"+
+		"\u015c\f\17\2\2\u015c\u015d\7\64\2\2\u015d\u0183\5&\24\20\u015e\u015f"+
+		"\f\16\2\2\u015f\u0160\7\63\2\2\u0160\u0183\5&\24\17\u0161\u0162\f\r\2"+
+		"\2\u0162\u0163\7\62\2\2\u0163\u0183\5&\24\16\u0164\u0165\f\f\2\2\u0165"+
+		"\u0166\7.\2\2\u0166\u0183\5&\24\r\u0167\u0168\f\13\2\2\u0168\u0169\7/"+
+		"\2\2\u0169\u0183\5&\24\f\u016a\u016b\f\n\2\2\u016b\u016c\7\60\2\2\u016c"+
+		"\u0183\5&\24\13\u016d\u016e\f\t\2\2\u016e\u016f\7\61\2\2\u016f\u0183\5"+
+		"&\24\n\u0170\u0171\f\b\2\2\u0171\u0172\7\65\2\2\u0172\u0183\5&\24\t\u0173"+
+		"\u0174\f\7\2\2\u0174\u0175\7(\2\2\u0175\u0183\5&\24\b\u0176\u0177\f\6"+
+		"\2\2\u0177\u0178\7)\2\2\u0178\u0183\5&\24\7\u0179\u017a\f\5\2\2\u017a"+
+		"\u017b\7*\2\2\u017b\u0183\5&\24\6\u017c\u017d\f\4\2\2\u017d\u017e\7+\2"+
+		"\2\u017e\u0183\5&\24\5\u017f\u0180\f\3\2\2\u0180\u0181\7,\2\2\u0181\u0183"+
+		"\5&\24\4\u0182\u015b\3\2\2\2\u0182\u015e\3\2\2\2\u0182\u0161\3\2\2\2\u0182"+
+		"\u0164\3\2\2\2\u0182\u0167\3\2\2\2\u0182\u016a\3\2\2\2\u0182\u016d\3\2"+
+		"\2\2\u0182\u0170\3\2\2\2\u0182\u0173\3\2\2\2\u0182\u0176\3\2\2\2\u0182"+
+		"\u0179\3\2\2\2\u0182\u017c\3\2\2\2\u0182\u017f\3\2\2\2\u0183\u0186\3\2"+
+		"\2\2\u0184\u0182\3\2\2\2\u0184\u0185\3\2\2\2\u0185\'\3\2\2\2\u0186\u0184"+
+		"\3\2\2\2\u0187\u018a\5\20\t\2\u0188\u018a\3\2\2\2\u0189\u0187\3\2\2\2"+
+		"\u0189\u0188\3\2\2\2\u018a)\3\2\2\2\u018b\u018c\7\21\2\2\u018c\u0200\7"+
+		":\2\2\u018d\u018e\7?\2\2\u018e\u018f\7=\2\2\u018f\u0190\5\16\b\2\u0190"+
+		"\u0191\7>\2\2\u0191\u0192\7:\2\2\u0192\u0200\3\2\2\2\u0193\u0194\5\b\5"+
+		"\2\u0194\u0195\7?\2\2\u0195\u0196\7-\2\2\u0196\u0197\5&\24\2\u0197\u0198"+
+		"\7;\2\2\u0198\u0199\5\"\22\2\u0199\u019a\7:\2\2\u019a\u0200\3\2\2\2\u019b"+
+		"\u019c\5\b\5\2\u019c\u019d\7?\2\2\u019d\u019e\7;\2\2\u019e\u019f\5\"\22"+
+		"\2\u019f\u01a0\7:\2\2\u01a0\u0200\3\2\2\2\u01a1\u01a2\7?\2\2\u01a2\u01a3"+
+		"\7-\2\2\u01a3\u01a4\5&\24\2\u01a4\u01a5\7:\2\2\u01a5\u0200\3\2\2\2\u01a6"+
+		"\u01a7\5\b\5\2\u01a7\u01a8\7?\2\2\u01a8\u01a9\7-\2\2\u01a9\u01aa\5&\24"+
+		"\2\u01aa\u01ab\7:\2\2\u01ab\u0200\3\2\2\2\u01ac\u01ad\7?\2\2\u01ad\u01ae"+
+		"\7<\2\2\u01ae\u01af\5$\23\2\u01af\u01b0\7-\2\2\u01b0\u01b1\5&\24\2\u01b1"+
+		"\u01b2\7:\2\2\u01b2\u0200\3\2\2\2\u01b3\u01b4\5\b\5\2\u01b4\u01b5\7?\2"+
+		"\2\u01b5\u01b6\7:\2\2\u01b6\u0200\3\2\2\2\u01b7\u01b8\7\6\2\2\u01b8\u01b9"+
+		"\7=\2\2\u01b9\u01ba\5&\24\2\u01ba\u01bb\7>\2\2\u01bb\u01bc\7\7\2\2\u01bc"+
+		"\u01bd\5\24\13\2\u01bd\u01be\7\b\2\2\u01be\u0200\3\2\2\2\u01bf\u01c0\7"+
+		"\6\2\2\u01c0\u01c1\7=\2\2\u01c1\u01c2\5&\24\2\u01c2\u01c3\7>\2\2\u01c3"+
+		"\u01c4\7\7\2\2\u01c4\u01c5\5\24\13\2\u01c5\u01c6\7\5\2\2\u01c6\u01c7\5"+
+		"\24\13\2\u01c7\u01c8\7\b\2\2\u01c8\u0200\3\2\2\2\u01c9\u01ca\7\4\2\2\u01ca"+
+		"\u01cb\7=\2\2\u01cb\u01cc\7?\2\2\u01cc\u01cd\7<\2\2\u01cd\u01ce\5$\23"+
+		"\2\u01ce\u01cf\7>\2\2\u01cf\u01d0\7:\2\2\u01d0\u0200\3\2\2\2\u01d1\u01d2"+
+		"\7\4\2\2\u01d2\u01d3\7=\2\2\u01d3\u01d4\7?\2\2\u01d4\u01d5\7>\2\2\u01d5"+
+		"\u0200\7:\2\2\u01d6\u01d7\7\27\2\2\u01d7\u01d8\7=\2\2\u01d8\u01d9\5 \21"+
+		"\2\u01d9\u01da\7>\2\2\u01da\u01db\7:\2\2\u01db\u0200\3\2\2\2\u01dc\u01dd"+
+		"\7\f\2\2\u01dd\u01de\7=\2\2\u01de\u01df\5\30\r\2\u01df\u01e0\5&\24\2\u01e0"+
+		"\u01e1\7:\2\2\u01e1\u01e2\5&\24\2\u01e2\u01e3\7>\2\2\u01e3\u01e4\7\n\2"+
+		"\2\u01e4\u01e5\5\24\13\2\u01e5\u01e6\7\r\2\2\u01e6\u0200\3\2\2\2\u01e7"+
+		"\u01e8\7\t\2\2\u01e8\u01e9\7=\2\2\u01e9\u01ea\5&\24\2\u01ea\u01eb\7>\2"+
+		"\2\u01eb\u01ec\7\n\2\2\u01ec\u01ed\5\24\13\2\u01ed\u01ee\7\13\2\2\u01ee"+
+		"\u0200\3\2\2\2\u01ef\u01f0\7\n\2\2\u01f0\u01f1\5\24\13\2\u01f1\u01f2\7"+
+		"\t\2\2\u01f2\u01f3\7=\2\2\u01f3\u01f4\5&\24\2\u01f4\u01f5\7>\2\2\u01f5"+
+		"\u01f6\7:\2\2\u01f6\u0200\3\2\2\2\u01f7\u01f8\7\16\2\2\u01f8\u01f9\7="+
+		"\2\2\u01f9\u01fa\7?\2\2\u01fa\u01fb\7>\2\2\u01fb\u01fc\7\17\2\2\u01fc"+
+		"\u01fd\5\32\16\2\u01fd\u01fe\7\23\2\2\u01fe\u0200\3\2\2\2\u01ff\u018b"+
+		"\3\2\2\2\u01ff\u018d\3\2\2\2\u01ff\u0193\3\2\2\2\u01ff\u019b\3\2\2\2\u01ff"+
+		"\u01a1\3\2\2\2\u01ff\u01a6\3\2\2\2\u01ff\u01ac\3\2\2\2\u01ff\u01b3\3\2"+
+		"\2\2\u01ff\u01b7\3\2\2\2\u01ff\u01bf\3\2\2\2\u01ff\u01c9\3\2\2\2\u01ff"+
+		"\u01d1\3\2\2\2\u01ff\u01d6\3\2\2\2\u01ff\u01dc\3\2\2\2\u01ff\u01e7\3\2"+
+		"\2\2\u01ff\u01ef\3\2\2\2\u01ff\u01f7\3\2\2\2\u0200+\3\2\2\2\u0201\u0202"+
+		"\7?\2\2\u0202\u0203\7=\2\2\u0203\u0204\5\16\b\2\u0204\u0205\7>\2\2\u0205"+
+		"\u0206\7:\2\2\u0206\u022c\3\2\2\2\u0207\u0208\5\b\5\2\u0208\u0209\7?\2"+
+		"\2\u0209\u020a\7-\2\2\u020a\u020b\5&\24\2\u020b\u020c\7;\2\2\u020c\u020d"+
+		"\5\"\22\2\u020d\u020e\7:\2\2\u020e\u022c\3\2\2\2\u020f\u0210\5\b\5\2\u0210"+
+		"\u0211\7?\2\2\u0211\u0212\7;\2\2\u0212\u0213\5\"\22\2\u0213\u0214\7:\2"+
+		"\2\u0214\u022c\3\2\2\2\u0215\u0216\7?\2\2\u0216\u0217\7-\2\2\u0217\u0218"+
+		"\5&\24\2\u0218\u0219\7:\2\2\u0219\u022c\3\2\2\2\u021a\u021b\5\b\5\2\u021b"+
+		"\u021c\7?\2\2\u021c\u021d\7-\2\2\u021d\u021e\5&\24\2\u021e\u021f\7:\2"+
+		"\2\u021f\u022c\3\2\2\2\u0220\u0221\7?\2\2\u0221\u0222\7<\2\2\u0222\u0223"+
+		"\5$\23\2\u0223\u0224\7-\2\2\u0224\u0225\5&\24\2\u0225\u0226\7:\2\2\u0226"+
+		"\u022c\3\2\2\2\u0227\u0228\5\b\5\2\u0228\u0229\7?\2\2\u0229\u022a\7:\2"+
+		"\2\u022a\u022c\3\2\2\2\u022b\u0201\3\2\2\2\u022b\u0207\3\2\2\2\u022b\u020f"+
+		"\3\2\2\2\u022b\u0215\3\2\2\2\u022b\u021a\3\2\2\2\u022b\u0220\3\2\2\2\u022b"+
+		"\u0227\3\2\2\2\u022c-\3\2\2\2\30\63KSWaelrx~\u00f2\u00fb\u0105\u0110\u011f"+
+		"\u0125\u0159\u0182\u0184\u0189\u01ff\u022b";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
