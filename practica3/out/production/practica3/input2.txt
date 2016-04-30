@@ -1,0 +1,4 @@
+funcion_principal
+    caracter a = 'f';
+    imprimir( 1000000 <'d');
+fin_principal

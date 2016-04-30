@@ -1,8 +1,106 @@
-funcion entero sum(entero a, entero b) hacer
+funcion entero sum2(entero x, entero y) hacer
+    retornar x + y;
+fin_funcion
+
+funcion entero sum(entero x, entero y) hacer
+    entero a = 1;
+    entero b = 2;
+    cadena d= "\n";
+    imprimir("suma1");
+    entero k = 10;
+    para (entero i = 0; i < 5; 1) hacer
+            imprimir(i);
+           para (entero j = 0; j < 5; 1) hacer
+                imprimir(j);
+            fin_para
+    fin_para
+    retornar x + y;
+fin_funcion
+
+funcion entero lol() hacer
+    entero dig1,dig2,dig3;
+    para ( dig1 = 0 ; dig1 <= 9; 1 ) hacer
+        para ( dig2 = 0; dig2 <= 9; 1) hacer
+            para (dig3=0; dig3 <= 9; 1) hacer
+                si ( dig1*dig1 + dig2*dig2 + dig3*dig3 == dig1*dig1*dig1) entonces
+                    imprimir( dig1*dig1*dig1 , "\n" );
+                fin_si
+            fin_para
+        fin_para
+    fin_para
+    retornar 1;
+fin_funcion
+
+funcion entero resta() hacer
+    entero a = 1;
+    entero b = 2;
+    cadena d= "\n";
+    entero res;
+    si ( a > b ) entonces
+        res = a;
+        booleano flag = verdadero;
+        si ( a > b ) entonces
+                entero res2 = a;
+                booleano flag2 = verdadero;
+                si ( a > b ) entonces
+                                entero res3 = a;
+                                booleano flag3 = verdadero;
+                            si_no
+                                booleano flag3 = falso;
+                                entero res3 = b;
+                fin_si
+            si_no
+                booleano flag2 = falso;
+                entero res2 = b;
+        fin_si
+    si_no
+        booleano flag = falso;
+        res = b;
+    fin_si
     retornar a + b;
 fin_funcion
 
+estructura C
+    entero a;
+    cadena d;
+fin_estructura
+
+estructura D
+    entero a;
+    C c;
+fin_estructura
+
 funcion_principal
-    entero x = 1 + 2;
-    imprimir(x);
+    cadena aa = "lol";
+    //imprimir("lol2\nlol2\n");
+    D d;
+    //entero b = d.c.a;
+    entero b = 2;
+    entero f = 2;
+    entero j = sum2(b, f);
+    imprimir(j);
+    imprimir(sum2(b, f));
+    sum2(b,f);
+    entero a = 2;
+    imprimir(a);
+    resta();
+    imprimir("lol7");
+    seleccionar ( a ) entre
+    	caso 0 :
+    		imprimir (a);
+    		romper;
+    	caso 1:
+    		imprimir (a*2);
+    		real aaa = 2.1;
+    	    romper;
+    	caso 2:
+            imprimir (a*2);
+            romper;
+    	defecto:
+    		j = 1;
+    		real aaa = 4.1;
+    		imprimir("defecto");
+    		romper;
+    fin_seleccionar
+    sum(2,3);
 fin_principal

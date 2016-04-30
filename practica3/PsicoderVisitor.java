@@ -1,4 +1,4 @@
-// Generated from C:/Users/jccaleroe/Documents/TareasLenguajes/practica3\Psicoder.g4 by ANTLR 4.5.1
+// Generated from C:/Users/jccaleroe/Documents/Practica-3/practica3\Psicoder.g4 by ANTLR 4.5.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -122,26 +122,26 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParamsTypeID(PsicoderParser.ParamsTypeIDContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code optpargsArgs}
-	 * labeled alternative in {@link PsicoderParser#optpargs}.
+	 * Visit a parse tree produced by the {@code optargsArgs}
+	 * labeled alternative in {@link PsicoderParser#optargs}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOptpargsArgs(PsicoderParser.OptpargsArgsContext ctx);
+	T visitOptargsArgs(PsicoderParser.OptargsArgsContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code optpargsEpsilon}
-	 * labeled alternative in {@link PsicoderParser#optpargs}.
+	 * Visit a parse tree produced by the {@code optargsEpsilon}
+	 * labeled alternative in {@link PsicoderParser#optargs}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOptpargsEpsilon(PsicoderParser.OptpargsEpsilonContext ctx);
+	T visitOptargsEpsilon(PsicoderParser.OptargsEpsilonContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code argsExpParams}
+	 * Visit a parse tree produced by the {@code argsExpArgs}
 	 * labeled alternative in {@link PsicoderParser#args}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArgsExpParams(PsicoderParser.ArgsExpParamsContext ctx);
+	T visitArgsExpArgs(PsicoderParser.ArgsExpArgsContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code argsExp}
 	 * labeled alternative in {@link PsicoderParser#args}.
@@ -150,12 +150,12 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArgsExp(PsicoderParser.ArgsExpContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code statementsEpsilonStmt}
+	 * Visit a parse tree produced by the {@code statementsStmt}
 	 * labeled alternative in {@link PsicoderParser#statements}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStatementsEpsilonStmt(PsicoderParser.StatementsEpsilonStmtContext ctx);
+	T visitStatementsStmt(PsicoderParser.StatementsStmtContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code statementsEpsilon}
 	 * labeled alternative in {@link PsicoderParser#statements}.
@@ -220,12 +220,12 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtIDAsig(PsicoderParser.StmtIDAsigContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmtTypeAsifExp}
+	 * Visit a parse tree produced by the {@code stmtTypeAsigExp}
 	 * labeled alternative in {@link PsicoderParser#stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStmtTypeAsifExp(PsicoderParser.StmtTypeAsifExpContext ctx);
+	T visitStmtTypeAsigExp(PsicoderParser.StmtTypeAsigExpContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmtIDChain}
 	 * labeled alternative in {@link PsicoderParser#stmt}.
@@ -304,6 +304,41 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtSeleccionar(PsicoderParser.StmtSeleccionarContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code paraStmtIDAsig}
+	 * labeled alternative in {@link PsicoderParser#para_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParaStmtIDAsig(PsicoderParser.ParaStmtIDAsigContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code paraStmtTypeAsigExp}
+	 * labeled alternative in {@link PsicoderParser#para_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParaStmtTypeAsigExp(PsicoderParser.ParaStmtTypeAsigExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code paraStmtIDChain}
+	 * labeled alternative in {@link PsicoderParser#para_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParaStmtIDChain(PsicoderParser.ParaStmtIDChainContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code si_no}
+	 * labeled alternative in {@link PsicoderParser#si_noBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSi_no(PsicoderParser.Si_noContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code si_no2}
+	 * labeled alternative in {@link PsicoderParser#si_noBlock2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSi_no2(PsicoderParser.Si_no2Context ctx);
+	/**
 	 * Visit a parse tree produced by the {@code casesCaso}
 	 * labeled alternative in {@link PsicoderParser#cases}.
 	 * @param ctx the parse tree
@@ -318,12 +353,12 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCasesDefecto(PsicoderParser.CasesDefectoContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code cases2cacso}
+	 * Visit a parse tree produced by the {@code cases2Caso}
 	 * labeled alternative in {@link PsicoderParser#cases2}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCases2cacso(PsicoderParser.Cases2cacsoContext ctx);
+	T visitCases2Caso(PsicoderParser.Cases2CasoContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code cases2Epsilon}
 	 * labeled alternative in {@link PsicoderParser#cases2}.
@@ -471,6 +506,13 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpMenosID(PsicoderParser.ExpMenosIDContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code expMenosParExp}
+	 * labeled alternative in {@link PsicoderParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpMenosParExp(PsicoderParser.ExpMenosParExpContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code expNegID}
 	 * labeled alternative in {@link PsicoderParser#exp}.
 	 * @param ctx the parse tree
@@ -499,6 +541,13 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpMayorIgual(PsicoderParser.ExpMayorIgualContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code expMenosIDChain}
+	 * labeled alternative in {@link PsicoderParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpMenosIDChain(PsicoderParser.ExpMenosIDChainContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code expNegChain}
 	 * labeled alternative in {@link PsicoderParser#exp}.
 	 * @param ctx the parse tree
@@ -506,19 +555,19 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpNegChain(PsicoderParser.ExpNegChainContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code expOr}
-	 * labeled alternative in {@link PsicoderParser#exp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpOr(PsicoderParser.ExpOrContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code expMayor}
 	 * labeled alternative in {@link PsicoderParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitExpMayor(PsicoderParser.ExpMayorContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expOr}
+	 * labeled alternative in {@link PsicoderParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpOr(PsicoderParser.ExpOrContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code expMenorIgual}
 	 * labeled alternative in {@link PsicoderParser#exp}.
@@ -590,6 +639,13 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpMenosEntero(PsicoderParser.ExpMenosEnteroContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code expNegExp}
+	 * labeled alternative in {@link PsicoderParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpNegExp(PsicoderParser.ExpNegExpContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code expReal}
 	 * labeled alternative in {@link PsicoderParser#exp}.
 	 * @param ctx the parse tree
@@ -617,20 +673,6 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpID(PsicoderParser.ExpIDContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code optargsArgs}
-	 * labeled alternative in {@link PsicoderParser#optargs}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOptargsArgs(PsicoderParser.OptargsArgsContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code optargsEpsilon}
-	 * labeled alternative in {@link PsicoderParser#optargs}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOptargsEpsilon(PsicoderParser.OptargsEpsilonContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmt2Romper}
 	 * labeled alternative in {@link PsicoderParser#stmt2}.
@@ -667,12 +709,12 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmt2IDAsig(PsicoderParser.Stmt2IDAsigContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmt2TypeAsifExp}
+	 * Visit a parse tree produced by the {@code stmt2TypeAsigExp}
 	 * labeled alternative in {@link PsicoderParser#stmt2}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStmt2TypeAsifExp(PsicoderParser.Stmt2TypeAsifExpContext ctx);
+	T visitStmt2TypeAsigExp(PsicoderParser.Stmt2TypeAsigExpContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmt2IDChain}
 	 * labeled alternative in {@link PsicoderParser#stmt2}.
@@ -702,19 +744,19 @@ public interface PsicoderVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmt2SiNo(PsicoderParser.Stmt2SiNoContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmt2LeerID}
-	 * labeled alternative in {@link PsicoderParser#stmt2}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStmt2LeerID(PsicoderParser.Stmt2LeerIDContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code stmt2LeerChain}
 	 * labeled alternative in {@link PsicoderParser#stmt2}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStmt2LeerChain(PsicoderParser.Stmt2LeerChainContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stmt2LeerID}
+	 * labeled alternative in {@link PsicoderParser#stmt2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStmt2LeerID(PsicoderParser.Stmt2LeerIDContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmt2Imprimir}
 	 * labeled alternative in {@link PsicoderParser#stmt2}.
