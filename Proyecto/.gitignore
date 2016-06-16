@@ -1,0 +1,10 @@
+proyecto.iml
+*.class
+out/production/proyecto/.idea/workspace.xml
+out/production/proyecto/Clojure.g4
+out/production/proyecto/ClojureLexer.tokens
+out/production/proyecto/Clojure.tokens
+out/production/proyecto/aux_input
+out/production/proyecto/input
+out/production/proyecto/.gitignore
+.idea/workspace.xml
